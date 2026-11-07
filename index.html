@@ -292,6 +292,14 @@
     return fixedToDecimal(naturalLogReal(value));
   }
   function logarithm(value,base=null){
+    if(!isComplex(value)&&value.n>0n){
+      const lnValue=naturalLogReal(value);
+      if(base===null)return fixedToDecimal(fixedDiv(lnValue,LN10_FIXED));
+      if(!isComplex(base)&&base.n>0n){
+        if(base.n===pow10(base.s))throw new Error('A base do logaritmo não pode ser 1.');
+        return fixedToDecimal(fixedDiv(lnValue,naturalLogReal(base)));
+      }
+    }
     const lnValue=naturalLog(value);
     const lnBase=base===null?make(LN10_FIXED,FIXED_SCALE):naturalLog(base);
     if(realPart(lnBase).n===0n&&imagPart(lnBase).n===0n)throw new Error('A base do logaritmo não pode ser 1.');
