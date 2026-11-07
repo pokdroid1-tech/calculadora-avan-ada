@@ -196,7 +196,7 @@
   }
   function gcdBigInt(a,b){a=absBigInt(a);b=absBigInt(b);while(b!==0n){const r=a%b;a=b;b=r;}return a;}
   function raisePower(base,exponent){
-    const expC=isComplex(exponent)?exponent:complex(exponent,ZERO);
+    const expC=isComplex(exponent)?exponent:{re:exponent,im:ZERO};
     if(expC.im.n!==0n)return exponential(mul(exponent,naturalLog(base)));
     const exp=expC.re;
     if(isComplex(base)){
@@ -401,7 +401,12 @@
       take();
       if(peek().type!=='(')throw new Error('Use '+name+'(valor).');
       take();const arg=expression();
-      if(peek().type!==')')throw new Error('Falta fechar os parênteses de '+name+'.');
+      if(name==='log'&&peek().type===';'){
+        take();const second=expression();
+        if(peek().type!==')')throw new Error('Falta fechar os parênteses de log(base; valor).');
+        take();return logarithm(second,arg);
+      }
+      if(peek().type!==')')throw new Error(name==='log'?'Use log(valor) ou log(base; valor).':'Falta fechar os parênteses de '+name+'.');
       take();
       if(name==='sin'||name==='cos'||name==='tan')return trigFunction(name,arg);
       if(name==='ln')return naturalLog(arg);
