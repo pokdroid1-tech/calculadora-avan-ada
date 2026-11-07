@@ -6,43 +6,223 @@
 <meta name="theme-color" content="#101827">
 <title>Calculadora Avançada</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#121d2e;--panel2:#18263a;--line:#29394f;--muted:#91a2b9;--text:#edf4ff;--accent:#70a5ff;--accent2:#9ac1ff;--danger:#ff9a9a;--shadow:0 24px 70px #0007}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(900px 500px at 50% -10%,#1e3b66 0%,transparent 65%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);display:grid;place-items:center;padding:24px}
-.app{width:min(100%,490px);background:linear-gradient(180deg,#152237,#101a2a);border:1px solid #2a3c55;border-radius:25px;padding:23px;box-shadow:var(--shadow)}
-.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#7db0ff,#416ed0);display:grid;place-items:center;color:#071326;font-size:22px;font-weight:800}.brand h1{font-size:17px;margin:0;letter-spacing:.2px}.brand p{font-size:11px;color:var(--muted);margin:3px 0 0}.precision{border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:10px;white-space:nowrap}
-.screen{background:#091321;border:1px solid #26374e;border-radius:17px;padding:16px 17px 15px;min-height:135px;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:15px}.screen-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#7489a5}.expression{width:100%;border:0;outline:0;background:transparent;color:#b6c6dc;text-align:right;font-size:18px;padding:10px 0 7px;font-family:inherit}.result{font-size:clamp(25px,6vw,34px);line-height:1.25;text-align:right;font-weight:650;overflow-wrap:anywhere;min-height:43px;letter-spacing:-.8px}.result.error{font-size:14px;color:var(--danger);font-weight:500;letter-spacing:0}
-.header-controls{display:flex;align-items:center;gap:7px}.angle-toggle{background:#203958;color:#a9ccff;cursor:pointer;font:inherit}.trig-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:9px}.trig-keys .key{min-height:43px;font-size:15px}.advanced-keys{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:9px}.advanced-keys .key{min-height:46px;font-size:15px}.advanced-keys .key.wide{font-size:13px}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{min-height:57px;border:1px solid #2b3d54;background:#1b2a40;color:#e7effb;border-radius:13px;font-size:19px;font-weight:550;cursor:pointer;transition:transform .08s,background .15s,border-color .15s;user-select:none}.key:hover{background:#263a55;border-color:#466184}.key:active{transform:scale(.96)}.key.function{background:#172438;color:#a9c3e9}.key.operator{background:#203958;color:#a9ccff;border-color:#34547a}.key.equals{background:linear-gradient(135deg,#75adff,#4f7fe0);color:#08172c;border:0;font-size:23px}.key.clear{color:#ffb6b6;background:#362631;border-color:#593943}.key.zero{grid-column:span 2}.foot{display:flex;justify-content:space-between;gap:10px;color:#7488a3;font-size:10px;margin-top:15px}.history{margin-top:14px;border-top:1px solid #29394f;padding-top:12px}.history-head{display:flex;align-items:center;justify-content:space-between;color:#91a2b9;font-size:11px}.history-head button{background:none;border:0;color:#8fb8ff;cursor:pointer;font-size:11px}.history-list{display:flex;flex-direction:column;gap:7px;max-height:108px;overflow:auto;margin-top:9px}.history-item{display:flex;justify-content:space-between;gap:12px;color:#aabbd2;font-size:12px;cursor:pointer;padding:5px 7px;border-radius:7px}.history-item:hover{background:#1d2d43}.history-item strong{color:#edf4ff;font-weight:600}.hint{color:#6f829d;font-size:10px;margin-top:9px;text-align:center}
-@media(max-width:420px){body{padding:12px}.app{padding:16px;border-radius:20px}.key{min-height:53px}.keys{gap:7px}.precision{font-size:9px;padding:6px 8px}.header-controls{gap:4px}.trig-keys .key{min-height:42px}}
+:root{
+  color-scheme:dark;
+  --bg:#09111f;--panel:#111e30;--panel-2:#17263b;--panel-3:#1c2f48;
+  --line:#2a3d56;--muted:#91a3bb;--text:#edf4ff;--accent:#82b5ff;
+  --accent-strong:#5f98f0;--danger:#ffb1b1;--shadow:0 28px 90px #0008;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;padding:32px 20px;
+  background:radial-gradient(850px 520px at 50% -12%,#1b3a66 0%,transparent 68%),var(--bg);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--text);display:grid;place-items:center;
+}
+button,input{font:inherit}
+.app{
+  width:min(100%,900px);padding:25px;border:1px solid #2b3f5a;border-radius:28px;
+  background:linear-gradient(155deg,#14233a 0%,#101a2a 62%,#0e1928 100%);
+  box-shadow:var(--shadow);
+}
+.header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:21px}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.logo{
+  flex:0 0 46px;width:46px;height:46px;border-radius:15px;
+  display:grid;place-items:center;color:#07172b;font-size:24px;font-weight:800;
+  background:linear-gradient(135deg,#91c1ff,#4d82db);box-shadow:0 7px 22px #4d82db33;
+}
+.brand h1{font-size:18px;font-weight:720;letter-spacing:-.35px;margin:0}
+.brand p{font-size:12px;color:var(--muted);margin:4px 0 0}
+.header-controls{display:flex;align-items:center;gap:8px}
+.precision,.angle-toggle{
+  border:1px solid var(--line);border-radius:999px;padding:9px 12px;
+  color:var(--muted);font-size:11px;white-space:nowrap;background:#101d2e;
+}
+.angle-toggle{color:#c5dcff;background:#203958;border-color:#3d5f89;cursor:pointer;font-weight:750;min-width:58px}
+.angle-toggle:hover{background:#29476c}
+.screen{
+  background:linear-gradient(135deg,#081321,#0d1b2d);border:1px solid #2a405c;
+  border-radius:20px;padding:17px 20px 18px;min-height:155px;margin-bottom:20px;
+  box-shadow:inset 0 1px #ffffff08;
+}
+.screen-top,.result-label-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.screen-label,.result-label{
+  color:#7e94b1;font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:1.45px
+}
+.live-tag{color:#91baff;background:#1b3452;border:1px solid #2e4c70;border-radius:99px;padding:5px 9px;font-size:9px;letter-spacing:.7px}
+.expression{
+  width:100%;border:0;outline:0;background:transparent;color:#c3d2e7;text-align:right;
+  font-size:clamp(18px,3vw,24px);padding:15px 0 12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+.expression::placeholder{color:#536a87}
+.result-label-row{margin-bottom:4px}
+.result{font-size:clamp(29px,5vw,39px);line-height:1.22;text-align:right;font-weight:720;
+  overflow-wrap:anywhere;min-height:48px;letter-spacing:-1.15px;color:#f5f8ff}
+.result.error{font-size:14px;color:var(--danger);font-weight:550;letter-spacing:0}
+.workspace{display:grid;grid-template-columns:minmax(290px,.92fr) minmax(0,1.08fr);gap:17px;align-items:start}
+.panel{
+  min-width:0;padding:16px;border:1px solid #263951;border-radius:20px;
+  background:linear-gradient(180deg,#132238,#111d2e);
+}
+.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+.panel-heading h2{font-size:13px;margin:0;font-weight:750;letter-spacing:.1px}
+.panel-heading span{color:#778eac;font-size:10px}
+.basic-panel .keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.key{
+  min-width:0;min-height:53px;border:1px solid #2e435e;background:#1a2b42;color:#edf4ff;
+  border-radius:13px;font-size:19px;font-weight:620;cursor:pointer;
+  transition:transform .08s,background .15s,border-color .15s,box-shadow .15s;user-select:none;
+}
+.key:hover{background:#263c58;border-color:#52729c;box-shadow:0 5px 15px #0002}
+.key:active{transform:scale(.965)}
+.key.function{background:#19283d;color:#b8d0f3}
+.key.operator{background:#203a5a;color:#b5d3ff;border-color:#36577d;font-size:21px}
+.key.equals{
+  background:linear-gradient(135deg,#8bbcff,#5c91e7);color:#08172c;border:0;
+  font-size:23px;box-shadow:0 8px 20px #4b80cf33
+}
+.key.clear{color:#ffbcbc;background:#382834;border-color:#5c3e4a}
+.key.zero{grid-column:span 2}
+.key.equals-wide{grid-column:span 3}
+.science-panel{display:flex;flex-direction:column;gap:14px}
+.function-group{padding:12px;border:1px solid #263a53;border-radius:15px;background:#0f1b2b}
+.group-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.group-heading h3{margin:0;color:#c9d9ed;font-size:11px;font-weight:750;letter-spacing:.3px}
+.group-heading span{color:#7187a3;font-size:9px}
+.trig-keys,.complex-keys,.advanced-keys{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;
+}
+.function-group .key{min-height:43px;font-size:14px;border-radius:11px}
+.function-group .key.wide{font-size:12px}
+.science-hint{font-size:10px;line-height:1.5;color:#8499b4;margin:0;padding:0 2px}
+.foot{display:flex;justify-content:space-between;gap:12px;color:#748aa7;font-size:10px;margin:14px 2px 0}
+.history{margin-top:19px;border-top:1px solid #2a3d55;padding-top:14px}
+.history-head{display:flex;align-items:center;justify-content:space-between;color:#c1d0e4;font-size:12px;font-weight:700}
+.history-head button{background:none;border:0;color:#8fb8ff;cursor:pointer;font-size:11px;padding:4px 2px}
+.history-head button:hover{color:#c4dcff}
+.history-list{display:flex;flex-direction:column;gap:6px;max-height:125px;overflow:auto;margin-top:9px}
+.history-item{display:flex;justify-content:space-between;gap:12px;color:#aabbd2;font-size:12px;cursor:pointer;padding:8px 10px;border-radius:9px;background:#132137}
+.history-item:hover{background:#1d3049}
+.history-item strong{color:#edf4ff;font-weight:650}
+.hint{color:#788da9;font-size:10px;margin-top:9px;text-align:center}
+@media(max-width:720px){
+  body{padding:16px 11px;display:block}
+  .app{width:min(100%,560px);margin:0 auto;padding:17px;border-radius:22px}
+  .workspace{grid-template-columns:1fr;gap:13px}
+  .science-panel{order:2}
+  .basic-panel{order:1}
+  .header{margin-bottom:15px}
+}
+@media(max-width:420px){
+  .app{padding:13px}
+  .header{align-items:flex-start}
+  .logo{width:40px;height:40px;flex-basis:40px;border-radius:13px}
+  .brand{gap:9px}.brand h1{font-size:15px}.brand p{font-size:10px}
+  .precision{display:none}
+  .angle-toggle{padding:8px 10px;min-width:53px}
+  .screen{padding:14px 15px;min-height:139px}
+  .panel{padding:12px;border-radius:17px}
+  .basic-panel .keys{gap:7px}
+  .key{min-height:49px;border-radius:11px}
+  .function-group{padding:10px}
+  .trig-keys,.complex-keys,.advanced-keys{gap:6px}
+  .function-group .key{min-height:41px}
+  .foot{font-size:9px}
+}
 </style>
 </head>
 <body>
 <main class="app" aria-label="Calculadora avançada">
-  <header class="header"><div class="brand"><div class="logo">÷</div><div><h1>Calculadora Avançada</h1><p>Precisão decimal e números grandes</p></div></div><div class="header-controls"><span class="precision">20 casas exibidas</span><button id="angleMode" class="precision angle-toggle" type="button" title="Alternar entre graus e radianos">DEG</button></div></header>
-  <section class="screen" aria-live="polite"><div class="screen-label">Expressão</div><input id="expression" class="expression" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="Digite uma expressão…" aria-label="Expressão matemática"><div id="result" class="result">0</div></section>
-  <section class="advanced-keys" aria-label="Potências e raízes">
-    <button class="key function" data-insert="^2" title="Elevar ao quadrado">x²</button>
-    <button class="key function" data-insert="^" title="Potência com expoente livre">xʸ</button>
-    <button class="key function" data-insert="√(" title="Raiz quadrada">√</button>
-    <button class="key function" data-insert="∛(" title="Raiz cúbica">∛</button>
-    <button class="key function" data-insert="root(" title="Raiz de índice n">ⁿ√</button>
-    <button class="key function" data-insert="exp(" title="Função exponencial e elevado a x">eˣ</button>
-    <button class="key function" data-insert="ln(" title="Logaritmo natural">ln</button>
-    <button class="key function" data-insert="log(" title="Logaritmo na base 10">log</button>
-    <button class="key function wide" data-insert="log(" title="Logaritmo de base personalizada: log(base;valor)">logₐ</button>
-    <button class="key function" data-insert="π" title="Constante pi">π</button>
-    <button class="key function" data-insert="e" title="Número de Euler">e</button>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">∑</div>
+      <div><h1>Calculadora Avançada</h1><p>Precisão, ciência e números complexos</p></div>
+    </div>
+    <div class="header-controls">
+      <span class="precision">20 casas decimais</span>
+      <button id="angleMode" class="angle-toggle" type="button" title="Alternar entre graus e radianos">DEG</button>
+    </div>
+  </header>
+
+  <section class="screen" aria-live="polite">
+    <div class="screen-top"><div class="screen-label">Expressão matemática</div><span class="live-tag">CÁLCULO AO VIVO</span></div>
+    <input id="expression" class="expression" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="Digite sua expressão…" aria-label="Expressão matemática">
+    <div class="result-label-row"><span class="result-label">Resultado</span></div>
+    <div id="result" class="result">0</div>
   </section>
-  <section class="trig-keys" aria-label="Trigonometria e números complexos"><button class="key function" data-insert="sin(" title="Seno">sin</button><button class="key function" data-insert="cos(" title="Cosseno">cos</button><button class="key function" data-insert="tan(" title="Tangente">tan</button><button class="key function" data-insert="i" title="Unidade imaginária">i</button></section>
-  <section class="keys" aria-label="Teclado da calculadora">
-    <button class="key clear" data-action="clear">AC</button><button class="key function" data-action="back">⌫</button><button class="key function" data-value="(">(</button><button class="key operator" data-value="÷">÷</button>
-    <button class="key" data-value="7">7</button><button class="key" data-value="8">8</button><button class="key" data-value="9">9</button><button class="key operator" data-value="×">×</button>
-    <button class="key" data-value="4">4</button><button class="key" data-value="5">5</button><button class="key" data-value="6">6</button><button class="key operator" data-value="−">−</button>
-    <button class="key" data-value="1">1</button><button class="key" data-value="2">2</button><button class="key" data-value="3">3</button><button class="key operator" data-value="+">+</button>
-    <button class="key zero" data-value="0">0</button><button class="key" data-value=",">,</button><button class="key function" data-value=")">)</button>
-    <button class="key function" data-action="sign">±</button><button class="key function" data-action="clearentry">CE</button><button class="key equals" data-action="equals" style="grid-column:span 2">=</button>
+
+  <div class="workspace">
+    <section class="panel basic-panel" aria-label="Teclado básico">
+      <div class="panel-heading"><h2>Operações básicas</h2><span>Números e operadores</span></div>
+      <section class="keys" aria-label="Teclado da calculadora">
+        <button class="key clear" data-action="clear" title="Limpar tudo">AC</button>
+        <button class="key function" data-action="back" title="Apagar último caractere">⌫</button>
+        <button class="key function" data-value="(">(</button>
+        <button class="key function" data-value=")">)</button>
+
+        <button class="key" data-value="7">7</button><button class="key" data-value="8">8</button><button class="key" data-value="9">9</button><button class="key operator" data-value="÷">÷</button>
+        <button class="key" data-value="4">4</button><button class="key" data-value="5">5</button><button class="key" data-value="6">6</button><button class="key operator" data-value="×">×</button>
+        <button class="key" data-value="1">1</button><button class="key" data-value="2">2</button><button class="key" data-value="3">3</button><button class="key operator" data-value="−">−</button>
+        <button class="key function" data-action="sign" title="Trocar sinal">±</button>
+        <button class="key zero" data-value="0">0</button>
+        <button class="key" data-value=",">,</button>
+        <button class="key function" data-action="clearentry" title="Limpar entrada atual">CE</button>
+        <button class="key operator" data-value="+">+</button>
+        <button class="key equals equals-wide" data-action="equals">=</button>
+      </section>
+      <div class="foot"><span>Enter: calcular</span><span>Esc: limpar</span><span>Use . ou ,</span></div>
+    </section>
+
+    <aside class="panel science-panel" aria-label="Funções científicas">
+      <div class="panel-heading"><h2>Funções científicas</h2><span>Ferramentas avançadas</span></div>
+
+      <section class="function-group">
+        <div class="group-heading"><h3>Trigonometria</h3><span>DEG / RAD no topo</span></div>
+        <div class="trig-keys">
+          <button class="key function" data-insert="sin(" title="Seno">sin</button>
+          <button class="key function" data-insert="cos(" title="Cosseno">cos</button>
+          <button class="key function" data-insert="tan(" title="Tangente">tan</button>
+        </div>
+      </section>
+
+      <section class="function-group">
+        <div class="group-heading"><h3>Potências e raízes</h3><span>Expoentes e radicais</span></div>
+        <div class="advanced-keys">
+          <button class="key function" data-insert="^2" title="Elevar ao quadrado">x²</button>
+          <button class="key function" data-insert="^" title="Potência com expoente livre">xʸ</button>
+          <button class="key function" data-insert="√(" title="Raiz quadrada">√</button>
+          <button class="key function" data-insert="∛(" title="Raiz cúbica">∛</button>
+          <button class="key function" data-insert="root(" title="Raiz de índice n">ⁿ√</button>
+          <button class="key function" data-insert="exp(" title="Exponencial e elevado a x">eˣ</button>
+        </div>
+      </section>
+
+      <section class="function-group">
+        <div class="group-heading"><h3>Logaritmos</h3><span>Natural, decimal e base n</span></div>
+        <div class="advanced-keys">
+          <button class="key function" data-insert="ln(" title="Logaritmo natural">ln</button>
+          <button class="key function" data-insert="log(" title="Logaritmo base 10">log</button>
+          <button class="key function wide" data-insert="log(" title="Logaritmo em base personalizada">logₐ</button>
+        </div>
+      </section>
+
+      <section class="function-group">
+        <div class="group-heading"><h3>Constantes e complexos</h3><span>π, Euler e imaginários</span></div>
+        <div class="complex-keys">
+          <button class="key function" data-insert="π" title="Constante pi">π</button>
+          <button class="key function" data-insert="e" title="Número de Euler">e</button>
+          <button class="key function" data-insert="i" title="Unidade imaginária">i</button>
+        </div>
+      </section>
+      <p class="science-hint">Exemplos: <strong>log(2;8)</strong> para base personalizada · <strong>root(3;27)</strong> para raiz n-ésima · alterne DEG/RAD para escolher a unidade dos ângulos.</p>
+    </aside>
+  </div>
+
+  <section class="history">
+    <div class="history-head"><span>Histórico recente</span><button id="clearHistory" type="button">Limpar histórico</button></div>
+    <div id="history" class="history-list"><div class="hint">Seus cálculos aparecerão aqui.</div></div>
   </section>
-  <div class="foot"><span>Enter: calcular</span><span>DEG/RAD: alternar</span><span>i² = −1</span></div>
-  <section class="history"><div class="history-head"><span>Histórico recente</span><button id="clearHistory" type="button">Limpar histórico</button></div><div id="history" class="history-list"><div class="hint">Seus cálculos aparecerão aqui.</div></div></section>
 </main>
 <script>
 (() => {
@@ -529,7 +709,7 @@
       else{resultEl.classList.remove('error');resultEl.textContent='';}
     }
   }
-  document.querySelectorAll('.keys,.advanced-keys,.trig-keys').forEach(panel=>panel.addEventListener('click',event=>{
+  document.querySelectorAll('.keys,.advanced-keys,.trig-keys,.complex-keys').forEach(panel=>panel.addEventListener('click',event=>{
     const button=event.target.closest('button');if(!button)return;
     if(button.dataset.insert!==undefined){insert(button.dataset.insert);return;}
     if(button.dataset.value!==undefined){insert(button.dataset.value);return;}
