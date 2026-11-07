@@ -11,7 +11,7 @@
 .app{width:min(100%,490px);background:linear-gradient(180deg,#152237,#101a2a);border:1px solid #2a3c55;border-radius:25px;padding:23px;box-shadow:var(--shadow)}
 .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#7db0ff,#416ed0);display:grid;place-items:center;color:#071326;font-size:22px;font-weight:800}.brand h1{font-size:17px;margin:0;letter-spacing:.2px}.brand p{font-size:11px;color:var(--muted);margin:3px 0 0}.precision{border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:10px;white-space:nowrap}
 .screen{background:#091321;border:1px solid #26374e;border-radius:17px;padding:16px 17px 15px;min-height:135px;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:15px}.screen-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#7489a5}.expression{width:100%;border:0;outline:0;background:transparent;color:#b6c6dc;text-align:right;font-size:18px;padding:10px 0 7px;font-family:inherit}.result{font-size:clamp(25px,6vw,34px);line-height:1.25;text-align:right;font-weight:650;overflow-wrap:anywhere;min-height:43px;letter-spacing:-.8px}.result.error{font-size:14px;color:var(--danger);font-weight:500;letter-spacing:0}
-.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{min-height:57px;border:1px solid #2b3d54;background:#1b2a40;color:#e7effb;border-radius:13px;font-size:19px;font-weight:550;cursor:pointer;transition:transform .08s,background .15s,border-color .15s;user-select:none}.key:hover{background:#263a55;border-color:#466184}.key:active{transform:scale(.96)}.key.function{background:#172438;color:#a9c3e9}.key.operator{background:#203958;color:#a9ccff;border-color:#34547a}.key.equals{background:linear-gradient(135deg,#75adff,#4f7fe0);color:#08172c;border:0;font-size:23px}.key.clear{color:#ffb6b6;background:#362631;border-color:#593943}.key.zero{grid-column:span 2}.foot{display:flex;justify-content:space-between;gap:10px;color:#7488a3;font-size:10px;margin-top:15px}.history{margin-top:14px;border-top:1px solid #29394f;padding-top:12px}.history-head{display:flex;align-items:center;justify-content:space-between;color:#91a2b9;font-size:11px}.history-head button{background:none;border:0;color:#8fb8ff;cursor:pointer;font-size:11px}.history-list{display:flex;flex-direction:column;gap:7px;max-height:108px;overflow:auto;margin-top:9px}.history-item{display:flex;justify-content:space-between;gap:12px;color:#aabbd2;font-size:12px;cursor:pointer;padding:5px 7px;border-radius:7px}.history-item:hover{background:#1d2d43}.history-item strong{color:#edf4ff;font-weight:600}.hint{color:#6f829d;font-size:10px;margin-top:9px;text-align:center}
+.advanced-keys{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:9px}.advanced-keys .key{min-height:46px;font-size:15px}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{min-height:57px;border:1px solid #2b3d54;background:#1b2a40;color:#e7effb;border-radius:13px;font-size:19px;font-weight:550;cursor:pointer;transition:transform .08s,background .15s,border-color .15s;user-select:none}.key:hover{background:#263a55;border-color:#466184}.key:active{transform:scale(.96)}.key.function{background:#172438;color:#a9c3e9}.key.operator{background:#203958;color:#a9ccff;border-color:#34547a}.key.equals{background:linear-gradient(135deg,#75adff,#4f7fe0);color:#08172c;border:0;font-size:23px}.key.clear{color:#ffb6b6;background:#362631;border-color:#593943}.key.zero{grid-column:span 2}.foot{display:flex;justify-content:space-between;gap:10px;color:#7488a3;font-size:10px;margin-top:15px}.history{margin-top:14px;border-top:1px solid #29394f;padding-top:12px}.history-head{display:flex;align-items:center;justify-content:space-between;color:#91a2b9;font-size:11px}.history-head button{background:none;border:0;color:#8fb8ff;cursor:pointer;font-size:11px}.history-list{display:flex;flex-direction:column;gap:7px;max-height:108px;overflow:auto;margin-top:9px}.history-item{display:flex;justify-content:space-between;gap:12px;color:#aabbd2;font-size:12px;cursor:pointer;padding:5px 7px;border-radius:7px}.history-item:hover{background:#1d2d43}.history-item strong{color:#edf4ff;font-weight:600}.hint{color:#6f829d;font-size:10px;margin-top:9px;text-align:center}
 @media(max-width:420px){body{padding:12px}.app{padding:16px;border-radius:20px}.key{min-height:53px}.keys{gap:7px}.precision{font-size:9px;padding:6px 8px}}
 </style>
 </head>
@@ -19,6 +19,13 @@
 <main class="app" aria-label="Calculadora avançada">
   <header class="header"><div class="brand"><div class="logo">÷</div><div><h1>Calculadora Avançada</h1><p>Precisão decimal e números grandes</p></div></div><span class="precision">20 casas decimais</span></header>
   <section class="screen" aria-live="polite"><div class="screen-label">Expressão</div><input id="expression" class="expression" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="Digite uma expressão…" aria-label="Expressão matemática"><div id="result" class="result">0</div></section>
+  <section class="advanced-keys" aria-label="Potências e raízes">
+    <button class="key function" data-insert="^2" title="Elevar ao quadrado">x²</button>
+    <button class="key function" data-insert="^" title="Potência com expoente livre">xʸ</button>
+    <button class="key function" data-insert="√(" title="Raiz quadrada">√</button>
+    <button class="key function" data-insert="∛(" title="Raiz cúbica">∛</button>
+    <button class="key function" data-insert="root(" title="Raiz de índice n">ⁿ√</button>
+  </section>
   <section class="keys" aria-label="Teclado da calculadora">
     <button class="key clear" data-action="clear">AC</button><button class="key function" data-action="back">⌫</button><button class="key function" data-value="(">(</button><button class="key operator" data-value="÷">÷</button>
     <button class="key" data-value="7">7</button><button class="key" data-value="8">8</button><button class="key" data-value="9">9</button><button class="key operator" data-value="×">×</button>
@@ -27,7 +34,7 @@
     <button class="key zero" data-value="0">0</button><button class="key" data-value=",">,</button><button class="key function" data-value=")">)</button>
     <button class="key function" data-action="sign">±</button><button class="key function" data-action="clearentry">CE</button><button class="key equals" data-action="equals" style="grid-column:span 2">=</button>
   </section>
-  <div class="foot"><span>Enter: calcular</span><span>Esc: limpar</span><span>Use . ou , nos decimais</span></div>
+  <div class="foot"><span>Enter: calcular</span><span>Esc: limpar</span><span>root(3;27) = 3</span></div>
   <section class="history"><div class="history-head"><span>Histórico recente</span><button id="clearHistory" type="button">Limpar histórico</button></div><div id="history" class="history-list"><div class="hint">Seus cálculos aparecerão aqui.</div></div></section>
 </main>
 <script>
@@ -48,13 +55,146 @@
   function mul(a,b){return make(a.n*b.n,a.s+b.s)}
   function div(a,b){ if(b.n===0n) throw new Error('Não é possível dividir por zero.'); const numerator=a.n*pow10(b.s+DIVISION_SCALE); const denominator=b.n*pow10(a.s); let q=numerator/denominator; const r=numerator%denominator; const ar=r<0n?-r:r, ad=denominator<0n?-denominator:denominator; const twice=2n*ar; if(twice>ad || (twice===ad && (q<0n?-q:q)%2n===1n)) q += (numerator<0n)!==(denominator<0n)?-1n:1n; return make(q,DIVISION_SCALE); }
   function format(a){ if(a.n===0n)return '0'; const negative=a.n<0n; let digits=(negative?-a.n:a.n).toString(); if(a.s){digits=digits.padStart(a.s+1,'0');digits=digits.slice(0,-a.s)+','+digits.slice(-a.s);} return (negative?'-':'')+digits; }
-  function tokenize(src){ if(src.length>MAX_INPUT) throw new Error('Expressão muito longa (limite de 2.000 caracteres).'); const s=src.replace(/[−–]/g,'-').replace(/[×·]/g,'*').replace(/÷/g,'/').replace(/,/g,'.'); const tokens=[]; let i=0; while(i<s.length){const c=s[i]; if(/\s/.test(c)){i++;continue;} if(/[0-9.]/.test(c)){let start=i,dots=0;while(i<s.length&&/[0-9.]/.test(s[i])){if(s[i]==='.')dots++;i++;} if(dots>1||s.slice(start,i)==='.')throw new Error('Número decimal inválido.');tokens.push({type:'num',value:s.slice(start,i)});continue;} if('+-*/()'.includes(c)){tokens.push({type:c,value:c});i++;continue;} throw new Error('Caractere não permitido: '+c); } tokens.push({type:'eof'});return tokens; }
-  function evaluate(source){const tokens=tokenize(source);let pos=0,depth=0;const peek=()=>tokens[pos],take=()=>tokens[pos++];
-    function primary(){if(peek().type==='num')return parseDecimal(take().value);if(peek().type==='('){take();if(++depth>MAX_DEPTH)throw new Error('Parênteses aninhados demais.');const v=expression();if(peek().type!==')')throw new Error('Parênteses desbalanceados: falta “)”.');take();depth--;return v;}throw new Error('Era esperado um número ou “(”.');}
-    function unary(){if(peek().type==='+'){take();return unary();}if(peek().type==='-'){take();return neg(unary());}return primary();}
-    function term(){let v=unary();while(peek().type==='*'||peek().type==='/'){const op=take().type,b=unary();v=op==='*'?mul(v,b):div(v,b);}return v;}
-    function expression(){let v=term();while(peek().type==='+'||peek().type==='-'){const op=take().type,b=term();v=op==='+'?add(v,b):sub(v,b);}return v;}
-    if(peek().type==='eof')throw new Error('Digite uma expressão para calcular.');const value=expression();if(peek().type!=='eof'){if(peek().type===')')throw new Error('Parêntese “)” sem abertura correspondente.');throw new Error('Expressão incompleta ou operador em posição inválida.');}return value;
+  function gcdBigInt(a,b){a=a<0n?-a:a;b=b<0n?-b:b;while(b!==0n){const r=a%b;a=b;b=r;}return a;}
+  function integerNthRoot(value,index){
+    if(value<0n) throw new Error('Raiz de número negativo exige índice ímpar.');
+    if(value<2n) return value;
+    const bits=value.toString(2).length;
+    let x=1n<<BigInt(Math.ceil(bits/index));
+    const degree=BigInt(index);
+    while(true){
+      const denominator=x**BigInt(index-1);
+      const next=(BigInt(index-1)*x+value/denominator)/degree;
+      if(next>=x) break;
+      x=next;
+    }
+    while((x+1n)**degree<=value)x++;
+    while(x**degree>value)x--;
+    return x;
+  }
+  function nthRoot(value,index){
+    if(!Number.isInteger(index)||index<2||index>100) throw new Error('O índice da raiz deve ser um inteiro entre 2 e 100.');
+    const negative=value.n<0n;
+    if(negative&&index%2===0) throw new Error('Não existe raiz real de índice par para um número negativo.');
+    const numerator=(negative?-value.n:value.n)*pow10(DIVISION_SCALE*index);
+    const denominator=pow10(value.s);
+    let q=integerNthRoot(numerator/denominator,index);
+    const left=(2n**BigInt(index))*numerator;
+    const odd=(2n*q+1n)**BigInt(index);
+    const right=denominator*odd;
+    if(left>right||(left===right&&q%2n===1n))q++;
+    return make(negative?-q:q,DIVISION_SCALE);
+  }
+  function integerPower(value,exponent){
+    if(exponent===0){
+      if(value.n===0n) throw new Error('A expressão 0^0 é indefinida.');
+      return {n:1n,s:0};
+    }
+    const negative=exponent<0;
+    const e=Math.abs(exponent);
+    if(e>10000) throw new Error('Expoente muito grande (limite: 10.000).');
+    if(value.n===0n&&negative) throw new Error('Zero não pode ser elevado a um expoente negativo.');
+    if(value.n!==0n&&value.n.toString().replace('-','').length*e>MAX_DIGITS) throw new Error('O resultado da potência ultrapassaria o limite de dígitos.');
+    if(value.s*e>MAX_DIGITS) throw new Error('O resultado da potência ultrapassaria o limite de precisão.');
+    const powered=make(value.n**BigInt(e),value.s*e);
+    return negative?div({n:1n,s:0},powered):powered;
+  }
+  function raisePower(base,exponent){
+    const denominator=pow10(exponent.s);
+    const divisor=gcdBigInt(exponent.n,denominator);
+    const numerator=exponent.n/divisor;
+    const reducedDenominator=denominator/divisor;
+    if(reducedDenominator===1n){
+      if(numerator>10000n||numerator< -10000n) throw new Error('Expoente muito grande (limite: 10.000).');
+      return integerPower(base,Number(numerator));
+    }
+    if(reducedDenominator>100n) throw new Error('Use expoentes inteiros ou frações com denominador até 100.');
+    if(base.n<0n&&reducedDenominator%2n===0n) throw new Error('Uma base negativa exige raiz de índice ímpar neste expoente.');
+    const rooted=nthRoot(base,Number(reducedDenominator));
+    if(numerator>10000n||numerator< -10000n) throw new Error('Expoente muito grande (limite: 10.000).');
+    return integerPower(rooted,Number(numerator));
+  }
+  function tokenize(src){
+    if(src.length>MAX_INPUT) throw new Error('Expressão muito longa (limite de 2.000 caracteres).');
+    const s=src.replace(/[−–]/g,'-').replace(/[×·]/g,'*').replace(/÷/g,'/').replace(/,/g,'.');
+    const tokens=[];let i=0;
+    while(i<s.length){
+      const c=s[i];
+      if(/\s/.test(c)){i++;continue;}
+      if(/[0-9.]/.test(c)){
+        const start=i;let dots=0;
+        while(i<s.length&&/[0-9.]/.test(s[i])){if(s[i]==='.')dots++;i++;}
+        if(dots>1||s.slice(start,i)==='.')throw new Error('Número decimal inválido.');
+        tokens.push({type:'num',value:s.slice(start,i)});continue;
+      }
+      if(s.startsWith('root',i)&&!/[A-Za-z]/.test(s[i+4]||'')){tokens.push({type:'root'});i+=4;continue;}
+      if(s.startsWith('√',i)){tokens.push({type:'sqrt'});i++;continue;}
+      if(s.startsWith('∛',i)){tokens.push({type:'cbrt'});i++;continue;}
+      if('+-*/^();'.includes(c)){tokens.push({type:c,value:c});i++;continue;}
+      throw new Error('Caractere não permitido: '+c);
+    }
+    tokens.push({type:'eof'});return tokens;
+  }
+  function evaluate(source){
+    const tokens=tokenize(source);let pos=0,depth=0;
+    const peek=()=>tokens[pos],take=()=>tokens[pos++];
+    function primary(){
+      if(peek().type==='num')return parseDecimal(take().value);
+      if(peek().type==='('){
+        take();if(++depth>MAX_DEPTH)throw new Error('Parênteses aninhados demais.');
+        const v=expression();
+        if(peek().type!==')')throw new Error('Parênteses desbalanceados: falta “)”.');
+        take();depth--;return v;
+      }
+      if(peek().type==='sqrt'){take();return nthRoot(unary(),2);}
+      if(peek().type==='cbrt'){take();return nthRoot(unary(),3);}
+      if(peek().type==='root'){
+        take();
+        if(peek().type!=='(')throw new Error('Use a sintaxe root(índice; radicando).');
+        take();
+        const indexValue=expression();
+        if(peek().type!==';')throw new Error('Separe o índice e o radicando com ponto e vírgula: root(3;27).');
+        take();
+        const radicand=expression();
+        if(peek().type!==')')throw new Error('Falta fechar os parênteses da função root.');
+        take();
+        if(indexValue.s!==0||indexValue.n<2n||indexValue.n>100n)throw new Error('O índice da raiz deve ser um inteiro entre 2 e 100.');
+        return nthRoot(radicand,Number(indexValue.n));
+      }
+      throw new Error('Era esperado um número, uma raiz ou “(”.');
+    }
+    function powerExpr(){
+      const base=primary();
+      if(peek().type==='^'){take();const exponent=unary();return raisePower(base,exponent);}
+      return base;
+    }
+    function unary(){
+      if(peek().type==='+'){take();return unary();}
+      if(peek().type==='-'){take();return neg(unary());}
+      return powerExpr();
+    }
+    function term(){
+      let v=unary();
+      while(peek().type==='*'||peek().type==='/'){
+        const op=take().type,b=unary();v=op==='*'?mul(v,b):div(v,b);
+      }
+      return v;
+    }
+    function expression(){
+      let v=term();
+      while(peek().type==='+'||peek().type==='-'){
+        const op=take().type,b=term();v=op==='+'?add(v,b):sub(v,b);
+      }
+      return v;
+    }
+    if(peek().type==='eof')throw new Error('Digite uma expressão para calcular.');
+    const value=expression();
+    if(peek().type!=='eof'){
+      if(peek().type===')')throw new Error('Parêntese “)” sem abertura correspondente.');
+      if(peek().type===';')throw new Error('Ponto e vírgula só pode ser usado dentro de root(índice; radicando).');
+      throw new Error('Expressão incompleta ou operador em posição inválida.');
+    }
+    return value;
   }
   function showError(msg){resultEl.textContent=msg;resultEl.classList.add('error');}
   function showResult(text){resultEl.textContent=text;resultEl.classList.remove('error');}
@@ -62,9 +202,9 @@
   const records=[];
   function addHistory(expr,value){if(records[0]&&records[0].expr===expr&&records[0].value===value)return;records.unshift({expr,value});if(records.length>8)records.pop();renderHistory();}
   function renderHistory(){historyEl.innerHTML='';if(!records.length){historyEl.innerHTML='<div class="hint">Seus cálculos aparecerão aqui.</div>';return;}for(const r of records){const row=document.createElement('div');row.className='history-item';const a=document.createElement('span'),b=document.createElement('strong');a.textContent=r.expr;b.textContent=r.value;row.append(a,b);row.title='Clique para reutilizar';row.addEventListener('click',()=>{input.value=r.expr;input.focus();justEvaluated=false;});historyEl.append(row);}}
-  function insert(v){if(justEvaluated&&/[0-9.(]/.test(v))input.value='';justEvaluated=false;const start=input.selectionStart??input.value.length,end=input.selectionEnd??start;input.setRangeText(v,start,end,'end');input.focus();preview();}
+  function insert(v){if(justEvaluated&&/[0-9.(√∛r]/.test(v))input.value='';justEvaluated=false;const start=input.selectionStart??input.value.length,end=input.selectionEnd??start;input.setRangeText(v,start,end,'end');input.focus();preview();}
   function preview(){if(!input.value.trim()){showResult('0');return;}try{showResult(format(evaluate(input.value)));}catch(e){if(/zero/.test(e.message))showError(e.message);else {resultEl.classList.remove('error');resultEl.textContent='';}}}
-  document.querySelector('.keys').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.value!==undefined){insert(b.dataset.value);return;}switch(b.dataset.action){case'clear':input.value='';justEvaluated=false;showResult('0');input.focus();break;case'back':{const s=input.selectionStart??input.value.length,en=input.selectionEnd??s;if(s===en&&s>0)input.setRangeText('',s-1,s,'end');else input.setRangeText('',s,en,'end');justEvaluated=false;input.focus();preview();break;}case'equals':calculate();input.focus();break;case'clearentry':{const m=input.value.match(/(\d+(?:[.,]\d*)?|[.,]\d+)\s*$/);if(m)input.value=input.value.slice(0,m.index);else input.value='';justEvaluated=false;preview();input.focus();break;}case'sign':{const s=input.selectionStart??input.value.length;const left=input.value.slice(0,s);const m=left.match(/(\d+(?:[.,]\d*)?|[.,]\d+)\s*$/);if(m){const start=m.index;const before=input.value.slice(0,start);const token=m[0].trim();if(before.endsWith('-')&&(before.length===1||/[+*/(]/.test(before.at(-2))))input.value=before.slice(0,-1)+token+input.value.slice(s);else input.value=before+'-'+token+input.value.slice(s);}else input.value='-'+input.value;justEvaluated=false;preview();input.focus();break;}}});
+  document.querySelectorAll('.keys,.advanced-keys').forEach(panel=>panel.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.insert!==undefined){insert(b.dataset.insert);return;}if(b.dataset.value!==undefined){insert(b.dataset.value);return;}switch(b.dataset.action){case'clear':input.value='';justEvaluated=false;showResult('0');input.focus();break;case'back':{const s=input.selectionStart??input.value.length,en=input.selectionEnd??s;if(s===en&&s>0)input.setRangeText('',s-1,s,'end');else input.setRangeText('',s,en,'end');justEvaluated=false;input.focus();preview();break;}case'equals':calculate();input.focus();break;case'clearentry':{const m=input.value.match(/(\d+(?:[.,]\d*)?|[.,]\d+)\s*$/);if(m)input.value=input.value.slice(0,m.index);else input.value='';justEvaluated=false;preview();input.focus();break;}case'sign':{const s=input.selectionStart??input.value.length;const left=input.value.slice(0,s);const m=left.match(/(\d+(?:[.,]\d*)?|[.,]\d+)\s*$/);if(m){const start=m.index;const before=input.value.slice(0,start);const token=m[0].trim();if(before.endsWith('-')&&(before.length===1||/[+*/(]/.test(before.at(-2))))input.value=before.slice(0,-1)+token+input.value.slice(s);else input.value=before+'-'+token+input.value.slice(s);}else input.value='-'+input.value;justEvaluated=false;preview();input.focus();break;}}}));
   input.addEventListener('input',()=>{justEvaluated=false;preview();});input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();calculate();}if(e.key==='Escape'){input.value='';showResult('0');justEvaluated=false;}});
   document.getElementById('clearHistory').addEventListener('click',()=>{records.length=0;renderHistory();});
   showResult('0');
