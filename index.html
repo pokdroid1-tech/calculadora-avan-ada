@@ -11,13 +11,13 @@
 .app{width:min(100%,490px);background:linear-gradient(180deg,#152237,#101a2a);border:1px solid #2a3c55;border-radius:25px;padding:23px;box-shadow:var(--shadow)}
 .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#7db0ff,#416ed0);display:grid;place-items:center;color:#071326;font-size:22px;font-weight:800}.brand h1{font-size:17px;margin:0;letter-spacing:.2px}.brand p{font-size:11px;color:var(--muted);margin:3px 0 0}.precision{border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:10px;white-space:nowrap}
 .screen{background:#091321;border:1px solid #26374e;border-radius:17px;padding:16px 17px 15px;min-height:135px;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:15px}.screen-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#7489a5}.expression{width:100%;border:0;outline:0;background:transparent;color:#b6c6dc;text-align:right;font-size:18px;padding:10px 0 7px;font-family:inherit}.result{font-size:clamp(25px,6vw,34px);line-height:1.25;text-align:right;font-weight:650;overflow-wrap:anywhere;min-height:43px;letter-spacing:-.8px}.result.error{font-size:14px;color:var(--danger);font-weight:500;letter-spacing:0}
-.advanced-keys{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:9px}.advanced-keys .key{min-height:46px;font-size:15px}.advanced-keys .key.wide{font-size:13px}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{min-height:57px;border:1px solid #2b3d54;background:#1b2a40;color:#e7effb;border-radius:13px;font-size:19px;font-weight:550;cursor:pointer;transition:transform .08s,background .15s,border-color .15s;user-select:none}.key:hover{background:#263a55;border-color:#466184}.key:active{transform:scale(.96)}.key.function{background:#172438;color:#a9c3e9}.key.operator{background:#203958;color:#a9ccff;border-color:#34547a}.key.equals{background:linear-gradient(135deg,#75adff,#4f7fe0);color:#08172c;border:0;font-size:23px}.key.clear{color:#ffb6b6;background:#362631;border-color:#593943}.key.zero{grid-column:span 2}.foot{display:flex;justify-content:space-between;gap:10px;color:#7488a3;font-size:10px;margin-top:15px}.history{margin-top:14px;border-top:1px solid #29394f;padding-top:12px}.history-head{display:flex;align-items:center;justify-content:space-between;color:#91a2b9;font-size:11px}.history-head button{background:none;border:0;color:#8fb8ff;cursor:pointer;font-size:11px}.history-list{display:flex;flex-direction:column;gap:7px;max-height:108px;overflow:auto;margin-top:9px}.history-item{display:flex;justify-content:space-between;gap:12px;color:#aabbd2;font-size:12px;cursor:pointer;padding:5px 7px;border-radius:7px}.history-item:hover{background:#1d2d43}.history-item strong{color:#edf4ff;font-weight:600}.hint{color:#6f829d;font-size:10px;margin-top:9px;text-align:center}
-@media(max-width:420px){body{padding:12px}.app{padding:16px;border-radius:20px}.key{min-height:53px}.keys{gap:7px}.precision{font-size:9px;padding:6px 8px}}
+.header-controls{display:flex;align-items:center;gap:7px}.angle-toggle{background:#203958;color:#a9ccff;cursor:pointer;font:inherit}.trig-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:9px}.trig-keys .key{min-height:43px;font-size:15px}.advanced-keys{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:9px}.advanced-keys .key{min-height:46px;font-size:15px}.advanced-keys .key.wide{font-size:13px}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{min-height:57px;border:1px solid #2b3d54;background:#1b2a40;color:#e7effb;border-radius:13px;font-size:19px;font-weight:550;cursor:pointer;transition:transform .08s,background .15s,border-color .15s;user-select:none}.key:hover{background:#263a55;border-color:#466184}.key:active{transform:scale(.96)}.key.function{background:#172438;color:#a9c3e9}.key.operator{background:#203958;color:#a9ccff;border-color:#34547a}.key.equals{background:linear-gradient(135deg,#75adff,#4f7fe0);color:#08172c;border:0;font-size:23px}.key.clear{color:#ffb6b6;background:#362631;border-color:#593943}.key.zero{grid-column:span 2}.foot{display:flex;justify-content:space-between;gap:10px;color:#7488a3;font-size:10px;margin-top:15px}.history{margin-top:14px;border-top:1px solid #29394f;padding-top:12px}.history-head{display:flex;align-items:center;justify-content:space-between;color:#91a2b9;font-size:11px}.history-head button{background:none;border:0;color:#8fb8ff;cursor:pointer;font-size:11px}.history-list{display:flex;flex-direction:column;gap:7px;max-height:108px;overflow:auto;margin-top:9px}.history-item{display:flex;justify-content:space-between;gap:12px;color:#aabbd2;font-size:12px;cursor:pointer;padding:5px 7px;border-radius:7px}.history-item:hover{background:#1d2d43}.history-item strong{color:#edf4ff;font-weight:600}.hint{color:#6f829d;font-size:10px;margin-top:9px;text-align:center}
+@media(max-width:420px){body{padding:12px}.app{padding:16px;border-radius:20px}.key{min-height:53px}.keys{gap:7px}.precision{font-size:9px;padding:6px 8px}.header-controls{gap:4px}.trig-keys .key{min-height:42px}}
 </style>
 </head>
 <body>
 <main class="app" aria-label="Calculadora avançada">
-  <header class="header"><div class="brand"><div class="logo">÷</div><div><h1>Calculadora Avançada</h1><p>Precisão decimal e números grandes</p></div></div><span class="precision">20 casas decimais</span></header>
+  <header class="header"><div class="brand"><div class="logo">÷</div><div><h1>Calculadora Avançada</h1><p>Precisão decimal e números grandes</p></div></div><div class="header-controls"><span class="precision">20 casas exibidas</span><button id="angleMode" class="precision angle-toggle" type="button" title="Alternar entre graus e radianos">DEG</button></div></header>
   <section class="screen" aria-live="polite"><div class="screen-label">Expressão</div><input id="expression" class="expression" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="Digite uma expressão…" aria-label="Expressão matemática"><div id="result" class="result">0</div></section>
   <section class="advanced-keys" aria-label="Potências e raízes">
     <button class="key function" data-insert="^2" title="Elevar ao quadrado">x²</button>
@@ -32,6 +32,7 @@
     <button class="key function" data-insert="π" title="Constante pi">π</button>
     <button class="key function" data-insert="e" title="Número de Euler">e</button>
   </section>
+  <section class="trig-keys" aria-label="Trigonometria e números complexos"><button class="key function" data-insert="sin(" title="Seno">sin</button><button class="key function" data-insert="cos(" title="Cosseno">cos</button><button class="key function" data-insert="tan(" title="Tangente">tan</button><button class="key function" data-insert="i" title="Unidade imaginária">i</button></section>
   <section class="keys" aria-label="Teclado da calculadora">
     <button class="key clear" data-action="clear">AC</button><button class="key function" data-action="back">⌫</button><button class="key function" data-value="(">(</button><button class="key operator" data-value="÷">÷</button>
     <button class="key" data-value="7">7</button><button class="key" data-value="8">8</button><button class="key" data-value="9">9</button><button class="key operator" data-value="×">×</button>
@@ -40,54 +41,186 @@
     <button class="key zero" data-value="0">0</button><button class="key" data-value=",">,</button><button class="key function" data-value=")">)</button>
     <button class="key function" data-action="sign">±</button><button class="key function" data-action="clearentry">CE</button><button class="key equals" data-action="equals" style="grid-column:span 2">=</button>
   </section>
-  <div class="foot"><span>Enter: calcular</span><span>π ≈ 3,14159</span><span>e ≈ 2,71828</span></div>
+  <div class="foot"><span>Enter: calcular</span><span>DEG/RAD: alternar</span><span>i² = −1</span></div>
   <section class="history"><div class="history-head"><span>Histórico recente</span><button id="clearHistory" type="button">Limpar histórico</button></div><div id="history" class="history-list"><div class="hint">Seus cálculos aparecerão aqui.</div></div></section>
 </main>
 <script>
 (() => {
   'use strict';
-  const input = document.getElementById('expression');
-  const resultEl = document.getElementById('result');
-  const historyEl = document.getElementById('history');
-  const MAX_INPUT = 2000, MAX_DIGITS = 10000, MAX_DEPTH = 100, DIVISION_SCALE = 20;
-  let justEvaluated = false;
-  const pow10Cache = [1n];
-  function pow10(n){ if(!Number.isInteger(n)||n<0||n>MAX_DIGITS) throw new Error('Número com escala excessivamente grande.'); while(pow10Cache.length<=n) pow10Cache.push(pow10Cache[pow10Cache.length-1]*10n); return pow10Cache[n]; }
-  function make(n,s=0){ if(s<0||s>MAX_DIGITS) throw new Error('Precisão numérica excedida.'); if(n===0n) return {n:0n,s:0}; while(s>0 && n%10n===0n){n/=10n;s--;} if(n.toString().replace('-','').length>MAX_DIGITS) throw new Error('Número com dígitos demais.'); return {n,s}; }
-  function parseDecimal(text){ const t=text.replace(',','.'); if(!/^\d+(?:\.\d*)?$|^\.\d+$/.test(t)) throw new Error('Número inválido.'); const [whole,frac='']=t.split('.'); if(whole.length+frac.length>MAX_DIGITS) throw new Error('Número com dígitos demais.'); return make(BigInt((whole||'0')+frac),frac.length); }
-  function add(a,b){const s=Math.max(a.s,b.s);return make(a.n*pow10(s-a.s)+b.n*pow10(s-b.s),s)}
-  function neg(a){return {n:-a.n,s:a.s}}
-  function sub(a,b){return add(a,neg(b))}
-  function mul(a,b){return make(a.n*b.n,a.s+b.s)}
-  function div(a,b){ if(b.n===0n) throw new Error('Não é possível dividir por zero.'); const numerator=a.n*pow10(b.s+DIVISION_SCALE); const denominator=b.n*pow10(a.s); let q=numerator/denominator; const r=numerator%denominator; const ar=r<0n?-r:r, ad=denominator<0n?-denominator:denominator; const twice=2n*ar; if(twice>ad || (twice===ad && (q<0n?-q:q)%2n===1n)) q += (numerator<0n)!==(denominator<0n)?-1n:1n; return make(q,DIVISION_SCALE); }
-  function format(a){ if(a.n===0n)return '0'; const negative=a.n<0n; let digits=(negative?-a.n:a.n).toString(); if(a.s){digits=digits.padStart(a.s+1,'0');digits=digits.slice(0,-a.s)+','+digits.slice(-a.s);} return (negative?'-':'')+digits; }
-  const FIXED_SCALE = 70;
-  const FIXED_ONE = pow10(FIXED_SCALE);
-  // Constantes pi e e (número de Euler), armazenadas com 70 casas decimais.
-  const PI_FIXED = 31415926535897932384626433832795028841971693993751058209749445923078164n;
-  const E_FIXED  = 27182818284590452353602874713526624977572470936999595749669676277240766n;
-  function fixedMul(a,b){return a*b/FIXED_ONE;}
-  function fixedDiv(a,b){if(b===0n)throw new Error('Divisão interna por zero.');return a*FIXED_ONE/b;}
+  const input=document.getElementById('expression');
+  const resultEl=document.getElementById('result');
+  const historyEl=document.getElementById('history');
+  const angleButton=document.getElementById('angleMode');
+  const MAX_INPUT=2000,MAX_DIGITS=10000,MAX_DEPTH=100,DIVISION_SCALE=20,FIXED_SCALE=70;
+  const pow10Cache=[1n];
+  function pow10(n){
+    if(!Number.isInteger(n)||n<0||n>MAX_DIGITS)throw new Error('Número com escala excessivamente grande.');
+    while(pow10Cache.length<=n)pow10Cache.push(pow10Cache[pow10Cache.length-1]*10n);
+    return pow10Cache[n];
+  }
+  function make(n,s=0){
+    if(s<0||s>MAX_DIGITS)throw new Error('Precisão numérica excedida.');
+    if(n===0n)return {n:0n,s:0};
+    while(s>0&&n%10n===0n){n/=10n;s--;}
+    if(n.toString().replace('-','').length>MAX_DIGITS)throw new Error('Número com dígitos demais.');
+    return {n,s};
+  }
+  const ZERO=make(0n),ONE=make(1n),TWO=make(2n);
+  const FIXED_ONE=pow10(FIXED_SCALE);
+  const PI_FIXED=31415926535897932384626433832795028841971693993751058209749445923078164n;
+  const E_FIXED=27182818284590452353602874713526624977572470936999595749669676277240766n;
+  const TWO_PI_FIXED=2n*PI_FIXED;
+  const HALF_PI_FIXED=PI_FIXED/2n;
+  const QUARTER_PI_FIXED=PI_FIXED/4n;
+  let angleMode='DEG';
+  let justEvaluated=false;
   function absBigInt(v){return v<0n?-v:v;}
+  function absDec(v){return make(absBigInt(v.n),v.s);}
+  function addD(a,b){const s=Math.max(a.s,b.s);return make(a.n*pow10(s-a.s)+b.n*pow10(s-b.s),s);}
+  function negD(a){return make(-a.n,a.s);}
+  function subD(a,b){return addD(a,negD(b));}
+  function mulD(a,b){return make(a.n*b.n,a.s+b.s);}
   function roundRatio(numerator,denominator){
-    if(denominator===0n)throw new Error('Divisão interna por zero.');
-    const negative=(numerator<0n)!==(denominator<0n);
-    const n=absBigInt(numerator),d=absBigInt(denominator);
-    let q=n/d;const r=n%d;const twice=2n*r;
+    if(denominator===0n)throw new Error('Divisão por zero.');
+    const negative=(numerator<0n)!==(denominator<0n),n=absBigInt(numerator),d=absBigInt(denominator);
+    let q=n/d;const r=n%d,twice=2n*r;
     if(twice>d||(twice===d&&q%2n===1n))q++;
     return negative?-q:q;
+  }
+  function divD(a,b){
+    if(b.n===0n)throw new Error('Não é possível dividir por zero.');
+    const numerator=a.n*pow10(b.s+DIVISION_SCALE),denominator=b.n*pow10(a.s);
+    return make(roundRatio(numerator,denominator),DIVISION_SCALE);
+  }
+  function isComplex(v){return !!(v&&v.re&&v.im);}
+  function realPart(v){return isComplex(v)?v.re:v;}
+  function imagPart(v){return isComplex(v)?v.im:ZERO;}
+  function packComplex(re,im){return im.n===0n?re:{re,im};}
+  function complex(re,im=ZERO){return packComplex(realPart(re),realPart(im));}
+  function add(a,b){return packComplex(addD(realPart(a),realPart(b)),addD(imagPart(a),imagPart(b)));}
+  function neg(a){return packComplex(negD(realPart(a)),negD(imagPart(a)));}
+  function sub(a,b){return add(a,neg(b));}
+  function mul(a,b){
+    const ar=realPart(a),ai=imagPart(a),br=realPart(b),bi=imagPart(b);
+    return packComplex(subD(mulD(ar,br),mulD(ai,bi)),addD(mulD(ar,bi),mulD(ai,br)));
+  }
+  function div(a,b){
+    const ar=realPart(a),ai=imagPart(a),br=realPart(b),bi=imagPart(b);
+    if(bi.n===0n)return divD(ar,br);
+    const denominator=addD(mulD(br,br),mulD(bi,bi));
+    if(denominator.n===0n)throw new Error('Não é possível dividir por zero.');
+    const re=divD(addD(mulD(ar,br),mulD(ai,bi)),denominator);
+    const im=divD(subD(mulD(ai,br),mulD(ar,bi)),denominator);
+    return packComplex(re,im);
+  }
+  function parseDecimal(text){
+    const t=text.replace(',','.');
+    if(!/^\d+(?:\.\d*)?$|^\.\d+$/.test(t))throw new Error('Número inválido.');
+    const [whole,frac='']=t.split('.');
+    if(whole.length+frac.length>MAX_DIGITS)throw new Error('Número com dígitos demais.');
+    return make(BigInt((whole||'0')+frac),frac.length);
+  }
+  function formatD(a){
+    if(a.n===0n)return '0';
+    const negative=a.n<0n;
+    let digits=(negative?-a.n:a.n).toString();
+    if(a.s){digits=digits.padStart(a.s+1,'0');digits=digits.slice(0,-a.s)+','+digits.slice(-a.s);}
+    return (negative?'-':'')+digits;
+  }
+  function format(value){
+    if(!isComplex(value))return formatD(value);
+    const re=value.re,im=value.im;
+    if(im.n===0n)return formatD(re);
+    const magnitude=absDec(im);
+    const imagText=magnitude.n===pow10(magnitude.s)?'i':formatD(magnitude)+'i';
+    if(re.n===0n)return (im.n<0n?'-':'')+imagText;
+    return formatD(re)+(im.n<0n?' − ':' + ')+imagText;
   }
   function decimalToFixed(value){
     const shift=FIXED_SCALE-value.s;
     return shift>=0?value.n*pow10(shift):value.n/pow10(-shift);
   }
-  function fixedToDecimal(value){
-    const divisor=pow10(FIXED_SCALE-DIVISION_SCALE);
-    return make(roundRatio(value,divisor),DIVISION_SCALE);
+  function fixedToDecimal(value){return make(roundRatio(value,pow10(FIXED_SCALE-DIVISION_SCALE)),DIVISION_SCALE);}
+  function fixedMul(a,b){return a*b/FIXED_ONE;}
+  function fixedDiv(a,b){if(b===0n)throw new Error('Divisão interna por zero.');return a*FIXED_ONE/b;}
+  function integerNthRoot(value,index){
+    if(value<0n||!Number.isInteger(index)||index<2||index>100)throw new Error('Raiz inválida.');
+    if(value<2n)return value;
+    const bits=value.toString(2).length;
+    let x=1n<<BigInt(Math.ceil(bits/index));
+    const degree=BigInt(index);
+    while(true){
+      const next=((degree-1n)*x+value/(x**BigInt(index-1)))/degree;
+      if(next>=x)break;
+      x=next;
+    }
+    while((x+1n)**degree<=value)x++;
+    while(x**degree>value)x--;
+    return x;
   }
+  function nthRoot(value,index){
+    if(!Number.isInteger(index)||index<2||index>100)throw new Error('O índice da raiz deve ser um inteiro entre 2 e 100.');
+    if(isComplex(value)){
+      if(value.re.n===0n&&value.im.n===0n)return ZERO;
+      return exponential(div(naturalLog(value),make(BigInt(index))));
+    }
+    if(value.n<0n&&index%2===0){
+      if(index===2)return complex(ZERO,nthRoot(make(-value.n,value.s),2));
+      return exponential(div(naturalLog(complex(value,ZERO)),make(BigInt(index))));
+    }
+    const negative=value.n<0n;
+    const numerator=absBigInt(value.n)*pow10(DIVISION_SCALE*index);
+    const denominator=pow10(value.s);
+    const target=numerator/denominator;
+    let q=integerNthRoot(target,index);
+    const degree=BigInt(index);
+    const left=(2n**degree)*numerator;
+    const right=denominator*((2n*q+1n)**degree);
+    if(left>right||(left===right&&q%2n===1n))q++;
+    return make(negative?-q:q,DIVISION_SCALE);
+  }
+  function integerPower(value,exponent){
+    if(!Number.isInteger(exponent)||Math.abs(exponent)>10000)throw new Error('Expoente inteiro fora do limite de ±10.000.');
+    if(exponent===0){
+      if(realPart(value).n===0n&&imagPart(value).n===0n)throw new Error('A expressão 0^0 é indefinida.');
+      return ONE;
+    }
+    const negative=exponent<0;let n=Math.abs(exponent);
+    let base=value,result=ONE;
+    while(n>0){
+      if(n%2===1)result=mul(result,base);
+      n=Math.floor(n/2);
+      if(n>0)base=mul(base,base);
+    }
+    return negative?div(ONE,result):result;
+  }
+  function gcdBigInt(a,b){a=absBigInt(a);b=absBigInt(b);while(b!==0n){const r=a%b;a=b;b=r;}return a;}
+  function raisePower(base,exponent){
+    const expC=isComplex(exponent)?exponent:complex(exponent,ZERO);
+    if(expC.im.n!==0n)return exponential(mul(exponent,naturalLog(base)));
+    const exp=expC.re;
+    if(isComplex(base)){
+      if(exp.s===0)return integerPower(base,Number(exp.n));
+      return exponential(mul(exp,naturalLog(base)));
+    }
+    const denominator=pow10(exp.s);
+    const divisor=gcdBigInt(exp.n,denominator);
+    const numerator=exp.n/divisor;
+    const reducedDenominator=denominator/divisor;
+    if(reducedDenominator===1n){
+      if(numerator>10000n||numerator< -10000n)throw new Error('Expoente muito grande (limite: 10.000).');
+      return integerPower(base,Number(numerator));
+    }
+    if(reducedDenominator>100n)throw new Error('Use expoentes inteiros ou frações com denominador até 100.');
+    if(base.n<0n&&reducedDenominator%2n===0n)
+      return exponential(mul(exponent,naturalLog(complex(base,ZERO))));
+    const rooted=nthRoot(base,Number(reducedDenominator));
+    if(numerator>10000n||numerator< -10000n)throw new Error('Expoente muito grande (limite: 10.000).');
+    return integerPower(rooted,Number(numerator));
+  }
+
   function lnAtanh(x){
-    const z=fixedDiv(x-FIXED_ONE,x+FIXED_ONE);
-    const z2=fixedMul(z,z);
+    const z=fixedDiv(x-FIXED_ONE,x+FIXED_ONE),z2=fixedMul(z,z);
     let term=z,sum=z;
     for(let denominator=3n;denominator<=2001n;denominator+=2n){
       term=fixedMul(term,z2);
@@ -106,27 +239,65 @@
     return lnAtanh(reduced)+twos*LN2_FIXED;
   }
   const LN10_FIXED=lnPositiveFixed(10n*FIXED_ONE);
-  function naturalLog(value){
-    if(value.n<=0n)throw new Error('O logaritmo exige um número positivo.');
-    const digits=absBigInt(value.n).toString().length;
-    const decimalExponent=BigInt(digits-1-value.s);
-    const mantissa=absBigInt(value.n)*FIXED_ONE/pow10(digits-1);
+  function naturalLogReal(value){
+    if(value.n===0n)throw new Error('O logaritmo de zero é indefinido.');
+    const magnitude=absDec(value);
+    const digits=magnitude.n.toString().length;
+    const decimalExponent=BigInt(digits-1-magnitude.s);
+    const mantissa=magnitude.n*FIXED_ONE/pow10(digits-1);
     return lnPositiveFixed(mantissa)+decimalExponent*LN10_FIXED;
+  }
+  function atanSmall(z){
+    const z2=fixedMul(z,z);
+    let term=z,sum=z;
+    for(let n=1n;n<=300n;n++){
+      term=-fixedMul(term,z2);
+      const piece=term/(2n*n+1n);
+      if(piece===0n)break;
+      sum+=piece;
+    }
+    return sum;
+  }
+  function atanFixed(z){
+    if(z<0n)return -atanFixed(-z);
+    if(z>FIXED_ONE)return HALF_PI_FIXED-atanFixed(fixedDiv(FIXED_ONE,z));
+    if(z>FIXED_ONE/2n)return QUARTER_PI_FIXED+atanSmall(fixedDiv(z-FIXED_ONE,z+FIXED_ONE));
+    return atanSmall(z);
+  }
+  function atan2Fixed(y,x){
+    if(x===0n){
+      if(y>0n)return HALF_PI_FIXED;
+      if(y<0n)return -HALF_PI_FIXED;
+      throw new Error('Argumento de zero no plano complexo é indefinido.');
+    }
+    const angle=atanFixed(fixedDiv(y,x));
+    if(x>0n)return angle;
+    return y>=0n?angle+PI_FIXED:angle-PI_FIXED;
+  }
+  function complexLog(value){
+    const re=value.re,im=value.im;
+    if(re.n===0n&&im.n===0n)throw new Error('O logaritmo de zero é indefinido.');
+    const modulusSquared=addD(mulD(re,re),mulD(im,im));
+    const modulus=nthRoot(modulusSquared,2);
+    const logMagnitude=naturalLogReal(modulus);
+    const arg=atan2Fixed(decimalToFixed(im),decimalToFixed(re));
+    return complex(fixedToDecimal(logMagnitude),fixedToDecimal(arg));
+  }
+  function naturalLog(value){
+    if(isComplex(value))return complexLog(value);
+    if(value.n<0n)return complex(fixedToDecimal(naturalLogReal(value)),fixedToDecimal(PI_FIXED));
+    return naturalLogReal(value);
   }
   function logarithm(value,base=null){
     const lnValue=naturalLog(value);
-    if(base===null)return fixedToDecimal(fixedDiv(lnValue,LN10_FIXED));
-    if(base.n<=0n)throw new Error('A base do logaritmo deve ser positiva.');
-    if(base.n===pow10(base.s))throw new Error('A base do logaritmo não pode ser 1.');
-    const lnBase=naturalLog(base);
-    if(lnBase===0n)throw new Error('A base está próxima demais de 1 para a precisão disponível.');
-    return fixedToDecimal(fixedDiv(lnValue,lnBase));
+    const lnBase=base===null?make(LN10_FIXED,FIXED_SCALE):naturalLog(base);
+    if(realPart(lnBase).n===0n&&imagPart(lnBase).n===0n)throw new Error('A base do logaritmo não pode ser 1.');
+    return div(lnValue,lnBase);
   }
-  function exponential(value){
-    const x=decimalToFixed(value);
+  function exponentialFixed(x){
     const k=roundRatio(x,LN2_FIXED);
-    if(k>33000n)throw new Error('Resultado da exponencial grande demais para exibir.');
-    if(k< -500n)return make(0n,0);
+    if(k>33000n)throw new Error('Resultado da exponencial grande demais.');
+    if(k< -500n)return 0n;
     const remainder=x-k*LN2_FIXED;
     let term=FIXED_ONE,sum=FIXED_ONE;
     for(let i=1n;i<=500n;i++){
@@ -134,12 +305,64 @@
       if(term===0n)break;
       sum+=term;
     }
-    const scaled=k>=0n?sum*(1n<<k):sum/(1n<<(-k));
-    return fixedToDecimal(scaled);
+    return k>=0n?sum*(1n<<k):sum/(1n<<(-k));
   }
-  function tokenize(src){
-    if(src.length>MAX_INPUT) throw new Error('Expressão muito longa (limite de 2.000 caracteres).');
-    const s=src.replace(/[−–]/g,'-').replace(/[×·]/g,'*').replace(/÷/g,'/').replace(/,/g,'.');
+  function exponential(value){
+    if(isComplex(value)){
+      const magnitude=exponentialFixed(decimalToFixed(value.re));
+      const angle=decimalToFixed(value.im);
+      return complex(fixedToDecimal(fixedMul(magnitude,fixedCos(angle))),fixedToDecimal(fixedMul(magnitude,fixedSin(angle))));
+    }
+    return fixedToDecimal(exponentialFixed(decimalToFixed(value)));
+  }
+  function reduceAngle(x){
+    if(absBigInt(x)>FIXED_ONE*pow10(40))throw new Error('Ângulo grande demais para redução precisa.');
+    let r=x%TWO_PI_FIXED;
+    if(r>PI_FIXED)r-=TWO_PI_FIXED;
+    if(r< -PI_FIXED)r+=TWO_PI_FIXED;
+    return r;
+  }
+  function fixedSin(x){
+    const r=reduceAngle(x),x2=fixedMul(r,r);
+    let term=r,sum=r;
+    for(let n=1n;n<=100n;n++){
+      term=-fixedMul(term,x2)/((2n*n)*(2n*n+1n));
+      if(term===0n)break;
+      sum+=term;
+    }
+    return sum;
+  }
+  function fixedCos(x){
+    const r=reduceAngle(x),x2=fixedMul(r,r);
+    let term=FIXED_ONE,sum=FIXED_ONE;
+    for(let n=1n;n<=100n;n++){
+      term=-fixedMul(term,x2)/((2n*n-1n)*(2n*n));
+      if(term===0n)break;
+      sum+=term;
+    }
+    return sum;
+  }
+  function toRadiansFixed(value){
+    const fixed=decimalToFixed(value);
+    return angleMode==='DEG'?fixedMul(fixed,PI_FIXED/180n):fixed;
+  }
+  function trigFunction(name,value){
+    const a=toRadiansFixed(realPart(value)),b=toRadiansFixed(imagPart(value));
+    const sinA=fixedSin(a),cosA=fixedCos(a);
+    const expB=exponentialFixed(b),expNegB=exponentialFixed(-b);
+    const coshB=(expB+expNegB)/2n,sinhB=(expB-expNegB)/2n;
+    const sine=complex(fixedToDecimal(fixedMul(sinA,coshB)),fixedToDecimal(fixedMul(cosA,sinhB)));
+    const cosine=complex(fixedToDecimal(fixedMul(cosA,coshB)),fixedToDecimal(-fixedMul(sinA,sinhB)));
+    if(name==='sin')return sine;
+    if(name==='cos')return cosine;
+    if(absBigInt(realPart(cosine).n)<pow10(DIVISION_SCALE-2)&&imagPart(cosine).n===0n)
+      throw new Error('Tangente indefinida neste ângulo.');
+    return div(sine,cosine);
+  }
+
+  function tokenize(source){
+    if(source.length>MAX_INPUT)throw new Error('Expressão muito longa (limite de 2.000 caracteres).');
+    const s=source.replace(/[−–]/g,'-').replace(/[×·]/g,'*').replace(/÷/g,'/').replace(/,/g,'.');
     const tokens=[];let i=0;
     while(i<s.length){
       const c=s[i];
@@ -151,14 +374,17 @@
         tokens.push({type:'num',value:s.slice(start,i)});continue;
       }
       let matched=false;
-      for(const [word,type] of [['root','root'],['log','log'],['ln','ln'],['exp','exp'],['pi','pi']]){
+      for(const word of ['root','log','sin','cos','tan','ln','exp','pi']){
         if(s.slice(i,i+word.length).toLowerCase()===word&&!/[A-Za-z]/.test(s[i+word.length]||'')){
-          tokens.push({type});i+=word.length;matched=true;break;
+          tokens.push({type:word});i+=word.length;matched=true;break;
         }
       }
       if(matched)continue;
-      if(c==='e' || c==='E'){
+      if(c==='e'||c==='E'){
         if(!/[A-Za-z]/.test(s[i+1]||'')){tokens.push({type:'econst'});i++;continue;}
+      }
+      if(c==='i'||c==='I'){
+        if(!/[A-Za-z]/.test(s[i+1]||'')){tokens.push({type:'imag'});i++;continue;}
       }
       if(s.startsWith('π',i)){tokens.push({type:'pi'});i++;continue;}
       if(s.startsWith('√',i)){tokens.push({type:'sqrt'});i++;continue;}
@@ -171,10 +397,22 @@
   function evaluate(source){
     const tokens=tokenize(source);let pos=0,depth=0;
     const peek=()=>tokens[pos],take=()=>tokens[pos++];
+    function readFunction(name){
+      take();
+      if(peek().type!=='(')throw new Error('Use '+name+'(valor).');
+      take();const arg=expression();
+      if(peek().type!==')')throw new Error('Falta fechar os parênteses de '+name+'.');
+      take();
+      if(name==='sin'||name==='cos'||name==='tan')return trigFunction(name,arg);
+      if(name==='ln')return naturalLog(arg);
+      if(name==='exp')return exponential(arg);
+      return logarithm(arg);
+    }
     function primary(){
       if(peek().type==='num')return parseDecimal(take().value);
       if(peek().type==='pi'){take();return make(PI_FIXED,FIXED_SCALE);}
       if(peek().type==='econst'){take();return make(E_FIXED,FIXED_SCALE);}
+      if(peek().type==='imag'){take();return complex(ZERO,ONE);}
       if(peek().type==='('){
         take();if(++depth>MAX_DEPTH)throw new Error('Parênteses aninhados demais.');
         const v=expression();
@@ -184,39 +422,16 @@
       if(peek().type==='sqrt'){take();return nthRoot(primary(),2);}
       if(peek().type==='cbrt'){take();return nthRoot(primary(),3);}
       if(peek().type==='root'){
-        take();
-        if(peek().type!=='(')throw new Error('Use a sintaxe root(índice; radicando).');
-        take();
-        const indexValue=expression();
+        take();if(peek().type!=='(')throw new Error('Use root(índice;radicando).');
+        take();const index=expression();
         if(peek().type!==';')throw new Error('Separe o índice e o radicando com ponto e vírgula: root(3;27).');
-        take();
-        const radicand=expression();
+        take();const radicand=expression();
         if(peek().type!==')')throw new Error('Falta fechar os parênteses da função root.');
         take();
-        if(indexValue.s!==0||indexValue.n<2n||indexValue.n>100n)throw new Error('O índice da raiz deve ser um inteiro entre 2 e 100.');
-        return nthRoot(radicand,Number(indexValue.n));
+        if(isComplex(index)||index.s!==0||index.n<2n||index.n>100n)throw new Error('O índice deve ser inteiro entre 2 e 100.');
+        return nthRoot(radicand,Number(index.n));
       }
-      if(peek().type==='ln'||peek().type==='exp'){
-        const fn=take().type;
-        if(peek().type!=='(')throw new Error('Use '+fn+'(valor).');
-        take();const argument=expression();
-        if(peek().type!==')')throw new Error('Falta fechar os parênteses da função '+fn+'.');
-        take();
-        return fn==='ln'?fixedToDecimal(naturalLog(argument)):exponential(argument);
-      }
-      if(peek().type==='log'){
-        take();
-        if(peek().type!=='(')throw new Error('Use log(valor) ou log(base; valor).');
-        take();
-        const first=expression();
-        if(peek().type===';'){
-          take();const second=expression();
-          if(peek().type!==')')throw new Error('Falta fechar os parênteses de log(base; valor).');
-          take();return logarithm(second,first);
-        }
-        if(peek().type!==')')throw new Error('Use log(valor) ou log(base; valor).');
-        take();return logarithm(first);
-      }
+      if(['sin','cos','tan','ln','exp','log'].includes(peek().type))return readFunction(peek().type);
       throw new Error('Era esperado um número, uma função matemática ou “(”.');
     }
     function powerExpr(){
@@ -229,44 +444,113 @@
       if(peek().type==='-'){take();return neg(unary());}
       return powerExpr();
     }
+    const startsPrimary=type=>['num','pi','econst','imag','(','sqrt','cbrt','root','sin','cos','tan','ln','exp','log'].includes(type);
     function term(){
-      let v=unary();
-      const startsPrimary=type=>['num','pi','econst','(','sqrt','cbrt','root','ln','exp','log'].includes(type);
+      let value=unary();
       while(true){
         let op;
         if(peek().type==='*'||peek().type==='/')op=take().type;
         else if(startsPrimary(peek().type))op='*';
         else break;
-        const b=unary();v=op==='*'?mul(v,b):div(v,b);
+        const next=unary();value=op==='*'?mul(value,next):div(value,next);
       }
-      return v;
+      return value;
     }
     function expression(){
-      let v=term();
+      let value=term();
       while(peek().type==='+'||peek().type==='-'){
-        const op=take().type,b=term();v=op==='+'?add(v,b):sub(v,b);
+        const op=take().type,next=term();value=op==='+'?add(value,next):sub(value,next);
       }
-      return v;
+      return value;
     }
     if(peek().type==='eof')throw new Error('Digite uma expressão para calcular.');
     const value=expression();
-    if(peek().type!=='eof'){
+    if(peek().type!== 'eof'){
       if(peek().type===')')throw new Error('Parêntese “)” sem abertura correspondente.');
-      if(peek().type===';')throw new Error('Ponto e vírgula só pode ser usado dentro de root(índice; radicando) ou log(base; valor).');
+      if(peek().type===';')throw new Error('Ponto e vírgula só pode ser usado em root(índice; radicando).');
       throw new Error('Expressão incompleta ou operador em posição inválida.');
     }
     return value;
   }
-  function showError(msg){resultEl.textContent=msg;resultEl.classList.add('error');}
+
+  function showError(message){resultEl.textContent=message;resultEl.classList.add('error');}
   function showResult(text){resultEl.textContent=text;resultEl.classList.remove('error');}
-  function calculate(){const src=input.value.trim();try{const value=evaluate(src);const formatted=format(value);showResult(formatted);addHistory(src,formatted);justEvaluated=true;return true;}catch(e){showError(e.message||'Não foi possível calcular a expressão.');justEvaluated=false;return false;}}
+  function calculate(){
+    const source=input.value.trim();
+    try{const value=evaluate(source),formatted=format(value);showResult(formatted);addHistory(source,formatted);justEvaluated=true;return true;}
+    catch(error){showError(error.message||'Não foi possível calcular a expressão.');justEvaluated=false;return false;}
+  }
   const records=[];
-  function addHistory(expr,value){if(records[0]&&records[0].expr===expr&&records[0].value===value)return;records.unshift({expr,value});if(records.length>8)records.pop();renderHistory();}
-  function renderHistory(){historyEl.innerHTML='';if(!records.length){historyEl.innerHTML='<div class="hint">Seus cálculos aparecerão aqui.</div>';return;}for(const r of records){const row=document.createElement('div');row.className='history-item';const a=document.createElement('span'),b=document.createElement('strong');a.textContent=r.expr;b.textContent=r.value;row.append(a,b);row.title='Clique para reutilizar';row.addEventListener('click',()=>{input.value=r.expr;input.focus();justEvaluated=false;});historyEl.append(row);}}
-  function insert(v){if(justEvaluated&&/[0-9.(√∛rA-Za-zπ]/.test(v))input.value='';justEvaluated=false;const start=input.selectionStart??input.value.length,end=input.selectionEnd??start;input.setRangeText(v,start,end,'end');input.focus();preview();}
-  function preview(){if(!input.value.trim()){showResult('0');return;}try{showResult(format(evaluate(input.value)));}catch(e){if(/zero/.test(e.message))showError(e.message);else {resultEl.classList.remove('error');resultEl.textContent='';}}}
-  document.querySelectorAll('.keys,.advanced-keys').forEach(panel=>panel.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.insert!==undefined){insert(b.dataset.insert);return;}if(b.dataset.value!==undefined){insert(b.dataset.value);return;}switch(b.dataset.action){case'clear':input.value='';justEvaluated=false;showResult('0');input.focus();break;case'back':{const s=input.selectionStart??input.value.length,en=input.selectionEnd??s;if(s===en&&s>0)input.setRangeText('',s-1,s,'end');else input.setRangeText('',s,en,'end');justEvaluated=false;input.focus();preview();break;}case'equals':calculate();input.focus();break;case'clearentry':{const m=input.value.match(/(\d+(?:[.,]\d*)?|[.,]\d+)\s*$/);if(m)input.value=input.value.slice(0,m.index);else input.value='';justEvaluated=false;preview();input.focus();break;}case'sign':{const s=input.selectionStart??input.value.length;const left=input.value.slice(0,s);const m=left.match(/(\d+(?:[.,]\d*)?|[.,]\d+)\s*$/);if(m){const start=m.index;const before=input.value.slice(0,start);const token=m[0].trim();if(before.endsWith('-')&&(before.length===1||/[+*/(]/.test(before.at(-2))))input.value=before.slice(0,-1)+token+input.value.slice(s);else input.value=before+'-'+token+input.value.slice(s);}else input.value='-'+input.value;justEvaluated=false;preview();input.focus();break;}}}));
-  input.addEventListener('input',()=>{justEvaluated=false;preview();});input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();calculate();}if(e.key==='Escape'){input.value='';showResult('0');justEvaluated=false;}});
+  function addHistory(expression,value){
+    if(records[0]&&records[0].expr===expression&&records[0].value===value)return;
+    records.unshift({expr:expression,value});if(records.length>8)records.pop();renderHistory();
+  }
+  function renderHistory(){
+    historyEl.innerHTML='';
+    if(!records.length){historyEl.innerHTML='<div class="hint">Seus cálculos aparecerão aqui.</div>';return;}
+    for(const record of records){
+      const row=document.createElement('div');row.className='history-item';
+      const left=document.createElement('span'),right=document.createElement('strong');
+      left.textContent=record.expr;right.textContent=record.value;row.append(left,right);
+      row.title='Clique para reutilizar';
+      row.addEventListener('click',()=>{input.value=record.expr;input.focus();justEvaluated=false;preview();});
+      historyEl.append(row);
+    }
+  }
+  function insert(value){
+    if(justEvaluated&&/[0-9.(√∛rA-Za-zπi]/.test(value))input.value='';
+    justEvaluated=false;
+    const start=input.selectionStart??input.value.length,end=input.selectionEnd??start;
+    input.setRangeText(value,start,end,'end');input.focus();preview();
+  }
+  function preview(){
+    if(!input.value.trim()){showResult('0');return;}
+    try{showResult(format(evaluate(input.value)));}
+    catch(error){
+      if(/zero|indefinida/.test(error.message)){showError(error.message);}
+      else{resultEl.classList.remove('error');resultEl.textContent='';}
+    }
+  }
+  document.querySelectorAll('.keys,.advanced-keys,.trig-keys').forEach(panel=>panel.addEventListener('click',event=>{
+    const button=event.target.closest('button');if(!button)return;
+    if(button.dataset.insert!==undefined){insert(button.dataset.insert);return;}
+    if(button.dataset.value!==undefined){insert(button.dataset.value);return;}
+    switch(button.dataset.action){
+      case 'clear':input.value='';justEvaluated=false;showResult('0');input.focus();break;
+      case 'back':{
+        const start=input.selectionStart??input.value.length,end=input.selectionEnd??start;
+        if(start===end&&start>0)input.setRangeText('',start-1,start,'end');else input.setRangeText('',start,end,'end');
+        justEvaluated=false;input.focus();preview();break;
+      }
+      case 'equals':calculate();input.focus();break;
+      case 'clearentry':{
+        const match=input.value.match(/(\d+(?:[.,]\d*)?|[.,]\d+)\s*$/);
+        if(match)input.value=input.value.slice(0,match.index);else input.value='';
+        justEvaluated=false;preview();input.focus();break;
+      }
+      case 'sign':{
+        const pos=input.selectionStart??input.value.length,left=input.value.slice(0,pos);
+        const match=left.match(/(\d+(?:[.,]\d*)?|[.,]\d+)\s*$/);
+        if(match){
+          const start=match.index, before=input.value.slice(0,start), token=match[0].trim();
+          if(before.endsWith('-')&&(before.length===1||/[+*/(]/.test(before.at(-2))))
+            input.value=before.slice(0,-1)+token+input.value.slice(pos);
+          else input.value=before+'-'+token+input.value.slice(pos);
+        }else input.value='-'+input.value;
+        justEvaluated=false;preview();input.focus();break;
+      }
+    }
+  }));
+  input.addEventListener('input',()=>{justEvaluated=false;preview();});
+  input.addEventListener('keydown',event=>{
+    if(event.key==='Enter'){event.preventDefault();calculate();}
+    if(event.key==='Escape'){input.value='';showResult('0');justEvaluated=false;}
+  });
+  angleButton.addEventListener('click',()=>{
+    angleMode=angleMode==='DEG'?'RAD':'DEG';
+    angleButton.textContent=angleMode;angleButton.title=angleMode==='DEG'?'Ângulos em graus; clique para usar radianos':'Ângulos em radianos; clique para usar graus';
+    preview();
+  });
   document.getElementById('clearHistory').addEventListener('click',()=>{records.length=0;renderHistory();});
   showResult('0');
 })();
