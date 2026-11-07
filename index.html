@@ -289,7 +289,7 @@
   function naturalLog(value){
     if(isComplex(value))return complexLog(value);
     if(value.n<0n)return complex(fixedToDecimal(naturalLogReal(value)),fixedToDecimal(PI_FIXED));
-    return naturalLogReal(value);
+    return fixedToDecimal(naturalLogReal(value));
   }
   function logarithm(value,base=null){
     const lnValue=naturalLog(value);
@@ -350,7 +350,9 @@
     return angleMode==='DEG'?fixedMul(fixed,PI_FIXED/180n):fixed;
   }
   function trigFunction(name,value){
-    const a=toRadiansFixed(realPart(value)),b=toRadiansFixed(imagPart(value));
+    const complexArgument=isComplex(value);
+    const a=complexArgument?decimalToFixed(realPart(value)):toRadiansFixed(realPart(value));
+    const b=complexArgument?decimalToFixed(imagPart(value)):0n;
     const sinA=fixedSin(a),cosA=fixedCos(a);
     const expB=exponentialFixed(b),expNegB=exponentialFixed(-b);
     const coshB=(expB+expNegB)/2n,sinhB=(expB-expNegB)/2n;
