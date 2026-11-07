@@ -11,7 +11,7 @@
 .app{width:min(100%,490px);background:linear-gradient(180deg,#152237,#101a2a);border:1px solid #2a3c55;border-radius:25px;padding:23px;box-shadow:var(--shadow)}
 .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.brand{display:flex;gap:12px;align-items:center}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#7db0ff,#416ed0);display:grid;place-items:center;color:#071326;font-size:22px;font-weight:800}.brand h1{font-size:17px;margin:0;letter-spacing:.2px}.brand p{font-size:11px;color:var(--muted);margin:3px 0 0}.precision{border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:10px;white-space:nowrap}
 .screen{background:#091321;border:1px solid #26374e;border-radius:17px;padding:16px 17px 15px;min-height:135px;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:15px}.screen-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#7489a5}.expression{width:100%;border:0;outline:0;background:transparent;color:#b6c6dc;text-align:right;font-size:18px;padding:10px 0 7px;font-family:inherit}.result{font-size:clamp(25px,6vw,34px);line-height:1.25;text-align:right;font-weight:650;overflow-wrap:anywhere;min-height:43px;letter-spacing:-.8px}.result.error{font-size:14px;color:var(--danger);font-weight:500;letter-spacing:0}
-.advanced-keys{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:9px}.advanced-keys .key{min-height:46px;font-size:15px}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{min-height:57px;border:1px solid #2b3d54;background:#1b2a40;color:#e7effb;border-radius:13px;font-size:19px;font-weight:550;cursor:pointer;transition:transform .08s,background .15s,border-color .15s;user-select:none}.key:hover{background:#263a55;border-color:#466184}.key:active{transform:scale(.96)}.key.function{background:#172438;color:#a9c3e9}.key.operator{background:#203958;color:#a9ccff;border-color:#34547a}.key.equals{background:linear-gradient(135deg,#75adff,#4f7fe0);color:#08172c;border:0;font-size:23px}.key.clear{color:#ffb6b6;background:#362631;border-color:#593943}.key.zero{grid-column:span 2}.foot{display:flex;justify-content:space-between;gap:10px;color:#7488a3;font-size:10px;margin-top:15px}.history{margin-top:14px;border-top:1px solid #29394f;padding-top:12px}.history-head{display:flex;align-items:center;justify-content:space-between;color:#91a2b9;font-size:11px}.history-head button{background:none;border:0;color:#8fb8ff;cursor:pointer;font-size:11px}.history-list{display:flex;flex-direction:column;gap:7px;max-height:108px;overflow:auto;margin-top:9px}.history-item{display:flex;justify-content:space-between;gap:12px;color:#aabbd2;font-size:12px;cursor:pointer;padding:5px 7px;border-radius:7px}.history-item:hover{background:#1d2d43}.history-item strong{color:#edf4ff;font-weight:600}.hint{color:#6f829d;font-size:10px;margin-top:9px;text-align:center}
+.advanced-keys{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:9px}.advanced-keys .key{min-height:46px;font-size:15px}.advanced-keys .key.wide{font-size:13px}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{min-height:57px;border:1px solid #2b3d54;background:#1b2a40;color:#e7effb;border-radius:13px;font-size:19px;font-weight:550;cursor:pointer;transition:transform .08s,background .15s,border-color .15s;user-select:none}.key:hover{background:#263a55;border-color:#466184}.key:active{transform:scale(.96)}.key.function{background:#172438;color:#a9c3e9}.key.operator{background:#203958;color:#a9ccff;border-color:#34547a}.key.equals{background:linear-gradient(135deg,#75adff,#4f7fe0);color:#08172c;border:0;font-size:23px}.key.clear{color:#ffb6b6;background:#362631;border-color:#593943}.key.zero{grid-column:span 2}.foot{display:flex;justify-content:space-between;gap:10px;color:#7488a3;font-size:10px;margin-top:15px}.history{margin-top:14px;border-top:1px solid #29394f;padding-top:12px}.history-head{display:flex;align-items:center;justify-content:space-between;color:#91a2b9;font-size:11px}.history-head button{background:none;border:0;color:#8fb8ff;cursor:pointer;font-size:11px}.history-list{display:flex;flex-direction:column;gap:7px;max-height:108px;overflow:auto;margin-top:9px}.history-item{display:flex;justify-content:space-between;gap:12px;color:#aabbd2;font-size:12px;cursor:pointer;padding:5px 7px;border-radius:7px}.history-item:hover{background:#1d2d43}.history-item strong{color:#edf4ff;font-weight:600}.hint{color:#6f829d;font-size:10px;margin-top:9px;text-align:center}
 @media(max-width:420px){body{padding:12px}.app{padding:16px;border-radius:20px}.key{min-height:53px}.keys{gap:7px}.precision{font-size:9px;padding:6px 8px}}
 </style>
 </head>
@@ -25,6 +25,10 @@
     <button class="key function" data-insert="√(" title="Raiz quadrada">√</button>
     <button class="key function" data-insert="∛(" title="Raiz cúbica">∛</button>
     <button class="key function" data-insert="root(" title="Raiz de índice n">ⁿ√</button>
+    <button class="key function" data-insert="exp(" title="Função exponencial e elevado a x">eˣ</button>
+    <button class="key function" data-insert="ln(" title="Logaritmo natural">ln</button>
+    <button class="key function" data-insert="log(" title="Logaritmo na base 10">log</button>
+    <button class="key function wide" data-insert="log(" title="Logaritmo de base personalizada: log(base;valor)">logₐ</button>
   </section>
   <section class="keys" aria-label="Teclado da calculadora">
     <button class="key clear" data-action="clear">AC</button><button class="key function" data-action="back">⌫</button><button class="key function" data-value="(">(</button><button class="key operator" data-value="÷">÷</button>
@@ -34,7 +38,7 @@
     <button class="key zero" data-value="0">0</button><button class="key" data-value=",">,</button><button class="key function" data-value=")">)</button>
     <button class="key function" data-action="sign">±</button><button class="key function" data-action="clearentry">CE</button><button class="key equals" data-action="equals" style="grid-column:span 2">=</button>
   </section>
-  <div class="foot"><span>Enter: calcular</span><span>Esc: limpar</span><span>root(3;27) = 3</span></div>
+  <div class="foot"><span>Enter: calcular</span><span>log(2;8) = 3</span><span>eˣ = exp(x)</span></div>
   <section class="history"><div class="history-head"><span>Histórico recente</span><button id="clearHistory" type="button">Limpar histórico</button></div><div id="history" class="history-list"><div class="hint">Seus cálculos aparecerão aqui.</div></div></section>
 </main>
 <script>
@@ -55,64 +59,78 @@
   function mul(a,b){return make(a.n*b.n,a.s+b.s)}
   function div(a,b){ if(b.n===0n) throw new Error('Não é possível dividir por zero.'); const numerator=a.n*pow10(b.s+DIVISION_SCALE); const denominator=b.n*pow10(a.s); let q=numerator/denominator; const r=numerator%denominator; const ar=r<0n?-r:r, ad=denominator<0n?-denominator:denominator; const twice=2n*ar; if(twice>ad || (twice===ad && (q<0n?-q:q)%2n===1n)) q += (numerator<0n)!==(denominator<0n)?-1n:1n; return make(q,DIVISION_SCALE); }
   function format(a){ if(a.n===0n)return '0'; const negative=a.n<0n; let digits=(negative?-a.n:a.n).toString(); if(a.s){digits=digits.padStart(a.s+1,'0');digits=digits.slice(0,-a.s)+','+digits.slice(-a.s);} return (negative?'-':'')+digits; }
-  function gcdBigInt(a,b){a=a<0n?-a:a;b=b<0n?-b:b;while(b!==0n){const r=a%b;a=b;b=r;}return a;}
-  function integerNthRoot(value,index){
-    if(value<0n) throw new Error('Raiz de número negativo exige índice ímpar.');
-    if(value<2n) return value;
-    const bits=value.toString(2).length;
-    let x=1n<<BigInt(Math.ceil(bits/index));
-    const degree=BigInt(index);
-    while(true){
-      const denominator=x**BigInt(index-1);
-      const next=(BigInt(index-1)*x+value/denominator)/degree;
-      if(next>=x) break;
-      x=next;
-    }
-    while((x+1n)**degree<=value)x++;
-    while(x**degree>value)x--;
-    return x;
+  const FIXED_SCALE = 70;
+  const FIXED_ONE = pow10(FIXED_SCALE);
+  function fixedMul(a,b){return a*b/FIXED_ONE;}
+  function fixedDiv(a,b){if(b===0n)throw new Error('Divisão interna por zero.');return a*FIXED_ONE/b;}
+  function absBigInt(v){return v<0n?-v:v;}
+  function roundRatio(numerator,denominator){
+    if(denominator===0n)throw new Error('Divisão interna por zero.');
+    const negative=(numerator<0n)!==(denominator<0n);
+    const n=absBigInt(numerator),d=absBigInt(denominator);
+    let q=n/d;const r=n%d;const twice=2n*r;
+    if(twice>d||(twice===d&&q%2n===1n))q++;
+    return negative?-q:q;
   }
-  function nthRoot(value,index){
-    if(!Number.isInteger(index)||index<2||index>100) throw new Error('O índice da raiz deve ser um inteiro entre 2 e 100.');
-    const negative=value.n<0n;
-    if(negative&&index%2===0) throw new Error('Não existe raiz real de índice par para um número negativo.');
-    const numerator=(negative?-value.n:value.n)*pow10(DIVISION_SCALE*index);
-    const denominator=pow10(value.s);
-    let q=integerNthRoot(numerator/denominator,index);
-    const left=(2n**BigInt(index))*numerator;
-    const odd=(2n*q+1n)**BigInt(index);
-    const right=denominator*odd;
-    if(left>right||(left===right&&q%2n===1n))q++;
-    return make(negative?-q:q,DIVISION_SCALE);
+  function decimalToFixed(value){
+    const shift=FIXED_SCALE-value.s;
+    return shift>=0?value.n*pow10(shift):value.n/pow10(-shift);
   }
-  function integerPower(value,exponent){
-    if(exponent===0){
-      if(value.n===0n) throw new Error('A expressão 0^0 é indefinida.');
-      return {n:1n,s:0};
-    }
-    const negative=exponent<0;
-    const e=Math.abs(exponent);
-    if(e>10000) throw new Error('Expoente muito grande (limite: 10.000).');
-    if(value.n===0n&&negative) throw new Error('Zero não pode ser elevado a um expoente negativo.');
-    if(value.n!==0n&&value.n.toString().replace('-','').length*e>MAX_DIGITS) throw new Error('O resultado da potência ultrapassaria o limite de dígitos.');
-    if(value.s*e>MAX_DIGITS) throw new Error('O resultado da potência ultrapassaria o limite de precisão.');
-    const powered=make(value.n**BigInt(e),value.s*e);
-    return negative?div({n:1n,s:0},powered):powered;
+  function fixedToDecimal(value){
+    const divisor=pow10(FIXED_SCALE-DIVISION_SCALE);
+    return make(roundRatio(value,divisor),DIVISION_SCALE);
   }
-  function raisePower(base,exponent){
-    const denominator=pow10(exponent.s);
-    const divisor=gcdBigInt(exponent.n,denominator);
-    const numerator=exponent.n/divisor;
-    const reducedDenominator=denominator/divisor;
-    if(reducedDenominator===1n){
-      if(numerator>10000n||numerator< -10000n) throw new Error('Expoente muito grande (limite: 10.000).');
-      return integerPower(base,Number(numerator));
+  function lnAtanh(x){
+    const z=fixedDiv(x-FIXED_ONE,x+FIXED_ONE);
+    const z2=fixedMul(z,z);
+    let term=z,sum=z;
+    for(let denominator=3n;denominator<=2001n;denominator+=2n){
+      term=fixedMul(term,z2);
+      const contribution=term/denominator;
+      if(contribution===0n)break;
+      sum+=contribution;
     }
-    if(reducedDenominator>100n) throw new Error('Use expoentes inteiros ou frações com denominador até 100.');
-    if(base.n<0n&&reducedDenominator%2n===0n) throw new Error('Uma base negativa exige raiz de índice ímpar neste expoente.');
-    const rooted=nthRoot(base,Number(reducedDenominator));
-    if(numerator>10000n||numerator< -10000n) throw new Error('Expoente muito grande (limite: 10.000).');
-    return integerPower(rooted,Number(numerator));
+    return 2n*sum;
+  }
+  const LN2_FIXED=lnAtanh(2n*FIXED_ONE);
+  function lnPositiveFixed(value){
+    if(value<=0n)throw new Error('O logaritmo exige um número positivo.');
+    let reduced=value,twos=0n;
+    while(reduced>3n*FIXED_ONE/2n){reduced/=2n;twos++;}
+    while(reduced<3n*FIXED_ONE/4n){reduced*=2n;twos--;}
+    return lnAtanh(reduced)+twos*LN2_FIXED;
+  }
+  const LN10_FIXED=lnPositiveFixed(10n*FIXED_ONE);
+  function naturalLog(value){
+    if(value.n<=0n)throw new Error('O logaritmo exige um número positivo.');
+    const digits=absBigInt(value.n).toString().length;
+    const decimalExponent=BigInt(digits-1-value.s);
+    const mantissa=absBigInt(value.n)*FIXED_ONE/pow10(digits-1);
+    return lnPositiveFixed(mantissa)+decimalExponent*LN10_FIXED;
+  }
+  function logarithm(value,base=null){
+    const lnValue=naturalLog(value);
+    if(base===null)return fixedToDecimal(fixedDiv(lnValue,LN10_FIXED));
+    if(base.n<=0n)throw new Error('A base do logaritmo deve ser positiva.');
+    if(base.n===pow10(base.s))throw new Error('A base do logaritmo não pode ser 1.');
+    const lnBase=naturalLog(base);
+    if(lnBase===0n)throw new Error('A base está próxima demais de 1 para a precisão disponível.');
+    return fixedToDecimal(fixedDiv(lnValue,lnBase));
+  }
+  function exponential(value){
+    const x=decimalToFixed(value);
+    const k=roundRatio(x,LN2_FIXED);
+    if(k>33000n)throw new Error('Resultado da exponencial grande demais para exibir.');
+    if(k< -500n)return make(0n,0);
+    const remainder=x-k*LN2_FIXED;
+    let term=FIXED_ONE,sum=FIXED_ONE;
+    for(let i=1n;i<=500n;i++){
+      term=fixedMul(term,remainder)/i;
+      if(term===0n)break;
+      sum+=term;
+    }
+    const scaled=k>=0n?sum*(1n<<k):sum/(1n<<(-k));
+    return fixedToDecimal(scaled);
   }
   function tokenize(src){
     if(src.length>MAX_INPUT) throw new Error('Expressão muito longa (limite de 2.000 caracteres).');
@@ -127,7 +145,13 @@
         if(dots>1||s.slice(start,i)==='.')throw new Error('Número decimal inválido.');
         tokens.push({type:'num',value:s.slice(start,i)});continue;
       }
-      if(s.startsWith('root',i)&&!/[A-Za-z]/.test(s[i+4]||'')){tokens.push({type:'root'});i+=4;continue;}
+      let matched=false;
+      for(const [word,type] of [['root','root'],['log','log'],['ln','ln'],['exp','exp']]){
+        if(s.startsWith(word,i)&&!/[A-Za-z]/.test(s[i+word.length]||'')){
+          tokens.push({type});i+=word.length;matched=true;break;
+        }
+      }
+      if(matched)continue;
       if(s.startsWith('√',i)){tokens.push({type:'sqrt'});i++;continue;}
       if(s.startsWith('∛',i)){tokens.push({type:'cbrt'});i++;continue;}
       if('+-*/^();'.includes(c)){tokens.push({type:c,value:c});i++;continue;}
@@ -161,7 +185,28 @@
         if(indexValue.s!==0||indexValue.n<2n||indexValue.n>100n)throw new Error('O índice da raiz deve ser um inteiro entre 2 e 100.');
         return nthRoot(radicand,Number(indexValue.n));
       }
-      throw new Error('Era esperado um número, uma raiz ou “(”.');
+      if(peek().type==='ln'||peek().type==='exp'){
+        const fn=take().type;
+        if(peek().type!=='(')throw new Error('Use '+fn+'(valor).');
+        take();const argument=expression();
+        if(peek().type!==')')throw new Error('Falta fechar os parênteses da função '+fn+'.');
+        take();
+        return fn==='ln'?fixedToDecimal(naturalLog(argument)):exponential(argument);
+      }
+      if(peek().type==='log'){
+        take();
+        if(peek().type!=='(')throw new Error('Use log(valor) ou log(base; valor).');
+        take();
+        const first=expression();
+        if(peek().type===';'){
+          take();const second=expression();
+          if(peek().type!==')')throw new Error('Falta fechar os parênteses de log(base; valor).');
+          take();return logarithm(second,first);
+        }
+        if(peek().type!==')')throw new Error('Use log(valor) ou log(base; valor).');
+        take();return logarithm(first);
+      }
+      throw new Error('Era esperado um número, uma função matemática ou “(”.');
     }
     function powerExpr(){
       const base=primary();
@@ -191,7 +236,7 @@
     const value=expression();
     if(peek().type!=='eof'){
       if(peek().type===')')throw new Error('Parêntese “)” sem abertura correspondente.');
-      if(peek().type===';')throw new Error('Ponto e vírgula só pode ser usado dentro de root(índice; radicando).');
+      if(peek().type===';')throw new Error('Ponto e vírgula só pode ser usado dentro de root(índice; radicando) ou log(base; valor).');
       throw new Error('Expressão incompleta ou operador em posição inválida.');
     }
     return value;
