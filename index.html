@@ -106,7 +106,10 @@
   }
   function div(a,b){
     const ar=realPart(a),ai=imagPart(a),br=realPart(b),bi=imagPart(b);
-    if(bi.n===0n)return divD(ar,br);
+    if(bi.n===0n){
+      if(ai.n===0n)return divD(ar,br);
+      return packComplex(divD(ar,br),divD(ai,br));
+    }
     const denominator=addD(mulD(br,br),mulD(bi,bi));
     if(denominator.n===0n)throw new Error('Não é possível dividir por zero.');
     const re=divD(addD(mulD(ar,br),mulD(ai,bi)),denominator);
@@ -355,7 +358,7 @@
     const cosine=complex(fixedToDecimal(fixedMul(cosA,coshB)),fixedToDecimal(-fixedMul(sinA,sinhB)));
     if(name==='sin')return sine;
     if(name==='cos')return cosine;
-    if(absBigInt(realPart(cosine).n)<pow10(DIVISION_SCALE-2)&&imagPart(cosine).n===0n)
+    if(absBigInt(realPart(cosine).n)<pow10(DIVISION_SCALE-12)&&imagPart(cosine).n===0n)
       throw new Error('Tangente indefinida neste ângulo.');
     return div(sine,cosine);
   }
