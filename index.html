@@ -146,8 +146,8 @@
         if(peek().type!==')')throw new Error('Parênteses desbalanceados: falta “)”.');
         take();depth--;return v;
       }
-      if(peek().type==='sqrt'){take();return nthRoot(unary(),2);}
-      if(peek().type==='cbrt'){take();return nthRoot(unary(),3);}
+      if(peek().type==='sqrt'){take();return nthRoot(primary(),2);}
+      if(peek().type==='cbrt'){take();return nthRoot(primary(),3);}
       if(peek().type==='root'){
         take();
         if(peek().type!=='(')throw new Error('Use a sintaxe root(índice; radicando).');
