@@ -231,8 +231,13 @@
     }
     function term(){
       let v=unary();
-      while(peek().type==='*'||peek().type==='/'){
-        const op=take().type,b=unary();v=op==='*'?mul(v,b):div(v,b);
+      const startsPrimary=type=>['num','pi','econst','(','sqrt','cbrt','root','ln','exp','log'].includes(type);
+      while(true){
+        let op;
+        if(peek().type==='*'||peek().type==='/')op=take().type;
+        else if(startsPrimary(peek().type))op='*';
+        else break;
+        const b=unary();v=op==='*'?mul(v,b):div(v,b);
       }
       return v;
     }
